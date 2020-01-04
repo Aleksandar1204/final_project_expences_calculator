@@ -1,17 +1,18 @@
-const mongoose = require('mongoose');
-const uri = 'mongodb+srv://{username}:{password}@{host}/{dbname}?retryWrites=true&w=majority';
+const mongoose = require("mongoose");
+const uri = "mongodb+srv://{username}:{password}@{host}/{dbname}?retryWrites=true&w=majority";
 
-const init = (congig) => {
-    mongoose.connect(
-        parseCString(config),
-        {useNewUrlParser: true, useUnifiedTopology: true}
+
+const init = (config) =>{
+mongoose.connect(
+    parseCString(config), 
+    {useNewUrlParser: true,useUnifiedTopology: true}
     )
-    .then(res => {
-        //console.log(res);
-    })
-    .catch(err => {
-        console.log(err)
-    })
+  .then(res => {
+    //console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 }
 
 const parseCString = (config) =>{
