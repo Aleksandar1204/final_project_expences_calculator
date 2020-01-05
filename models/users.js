@@ -7,8 +7,11 @@ const User = mongoose.model(
         last_name:String,
         email: String,
         password: String,
-        confirm_hash: String,
-        confirmed: Boolean
+        birthday: Date,
+        telephone: String,
+        country: String,
+        _created: Date,
+        _modified: Date
     })
 );
 
@@ -27,7 +30,7 @@ const createUser = (data) => {
 
 const getUserPasswordByEmail = (email) => {
     return new Promise((success, fail) => {
-        User.find({email: email}, {password: 1, email: 1, first_name: 1, last_name : 1}, (err, data) => {
+        User.find({email: email}, (err, data) => {
             if(err){
                 return fail(err);
             }   
@@ -36,19 +39,9 @@ const getUserPasswordByEmail = (email) => {
     });
 }
 
-const confirmUserAccount = (hash) => {
-    return new Promise((success, fail) => {
-        User.update({confirm_hash:hash}, {confirmed: true}, (err) =>{
-            if(err){
-                return fail(err)
-            }
-            return success();
-        })
-    })
-}
 
 module.exports = {
     createUser,
-    getUserPasswordByEmail,
-    confirmUserAccount 
+    getUserPasswordByEmail
+   
 }

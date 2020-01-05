@@ -7,17 +7,19 @@ const Product = mongoose.model(
         description: Date,
         type: String,
         date: Date,
-        price: Boolean,
-        user_id: String
+        price: Number,
+        userID: String,
+        _created : Date, 
+        _modified : Date
     }, 
     {
         collection: 'products'
     })
 );
 
-const getAll = (userID) => {
+const getAll = (q, sort) => {
     return new Promise((success, fail) => {
-        Product.find({user_id: userID}, (err, data) => {
+        Product.find(q, {}, {sort:sort}, (err, data) => {
             if(err){
                 return fail(err);
             }
@@ -49,6 +51,18 @@ const save = (data) => {
     });
 };
 
+const update = (id, data) => {
+    return new Promise((success, fail) => {
+        Product.updateOne(id, {$set: {data}}, err => {
+            if(err){
+                return fail(err);
+            }
+            return success();
+        });
+    });
+};
+
+
 const remove = (id) => {
     return new Promise((success, fail) => {
         Product.deleteOne({_id: id}, err => {
@@ -76,5 +90,6 @@ module.exports = {
     getOne,
     save,
     remove,
-    replace
+    replace,
+    update
 };

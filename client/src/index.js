@@ -17,11 +17,10 @@ const Routes = () => {
         <Router>
             
             <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/products' render={() =>  <Products component={}/>}/>
-                <Route exact path='/expences' render={() => <Expences component={}/>}/>
-                <Route exact path='/newproduct' render={() => <NewProduct component={}/>}/>
-                <Route exact path='/editproduct' render={() => <NewProduct component={}/>}/>
+                
+                
+                <Route exact path='/newproduct' render={() => <NewProduct component={Newproduct}/>}/>
+                
             </Switch>
         </Router>
     )
