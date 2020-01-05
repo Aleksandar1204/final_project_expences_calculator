@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import logger from 'redux-logger'
-import { productsReducer } from './reducers/productsReducer'
+import { productReducer } from './reducers/productReducer'
 
 const singleReducer = combineReducers({
-    productsReducer,
+    productReducer,
 })
 
 // Create an epmty store object

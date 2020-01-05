@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Newproduct from './components/Newproduct/Newproduct'
 
 
 
@@ -8,9 +9,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import './assets/css/shared.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const app = document.getElementById('root')
 
 const Routes = () => {
     return (
@@ -19,7 +20,7 @@ const Routes = () => {
             <Switch>
                 
                 
-                <Route exact path='/newproduct' render={() => <NewProduct component={Newproduct}/>}/>
+                <Route exact path='/newproduct' render={() => <Newproduct component={Newproduct}/>}/>
                 
             </Switch>
         </Router>
