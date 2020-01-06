@@ -6,7 +6,7 @@ const DBconn = require('../db/connection');
 const products = require('../handlers/products');
 const cors = require('cors');
 
-DBCon.init(config.getConfig('db'));
+DBconn.init(config.getConfig('db'));
 
 const api = express();
 api.use(bodyParser.json());
