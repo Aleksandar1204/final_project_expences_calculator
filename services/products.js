@@ -1,17 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var jwt = require('express-jwt');
-
 const config = require('../config/index.js');
 const DBconn = require('../db/connection');
 const products = require('../handlers/products');
+const cors = require('cors');
 
-var c = config.getConfig('db');
+DBCon.init(config.getConfig('db'));
 
-
-DBconn.init(c);
 const api = express();
 api.use(bodyParser.json());
+api.use(cors());
 api.use(
     jwt(
         {secret: config.getConfig('jwt').key}
