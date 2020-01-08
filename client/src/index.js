@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Newproduct from './components/Newproduct/Newproduct'
+import Login from './components/auth/Login'
 
 
 
@@ -17,11 +18,9 @@ const Routes = () => {
     return (
         <Router>
             
-            <Switch>
-                
-                
-                <Route exact path='/newproduct' render={() => <Newproduct component={Newproduct}/>}/>
-                
+            <Switch> 
+                <Route exact path="/" component={Login} />
+                <Route exact path='/newproduct' render={() => <Newproduct component={Newproduct}/>}/>      
             </Switch>
         </Router>
     )

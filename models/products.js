@@ -30,7 +30,7 @@ const getAll = (q, sort) => {
 
 const getOne = (id, userID) => {
     return new Promise((success, fail) => {
-        Product.find({_id: id, user_id: userID}, (err, data) => {
+        Product.find({_id: id, userID: userID}, (err, data) => {
             if(err){
                 return fail(err);
             }
