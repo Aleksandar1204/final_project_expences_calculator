@@ -9,11 +9,11 @@ const cors = require('cors');
 
 db.init(config.getConfig('db'));
 
-var api = express();
+var app = express();
 
-api.use(bodyParser.json());
-api.use(cors());
-api.use(
+app.use(bodyParser.json());
+app.use(cors());
+app.use(
     jwt(
         {secret: config.getConfig('jwt').key}
     )
@@ -22,15 +22,15 @@ api.use(
     })
 );
 
-api.post('/api/v1/auth/register', auth.register);
-api.post('/api/v1/auth/login', auth.login);
-api.get('/api/v1/auth/user/:email', auth.userInfo);
-api.get('/api/v1/auth/renew', auth.renew);
-api.post('/api/v1/auth/reset-link', auth.resetLink);
-api.post('/api/v1/auth/reset-password', auth.resetPassword);
-api.post('/api/v1/auth/change-password', auth.changePassword);
+app.post('/api/v1/auth/register', auth.register);
+app.post('/api/v1/auth/login', auth.login);
+app.get('/api/v1/auth/user/:email', auth.userInfo);
+app.get('/api/v1/auth/renew', auth.renew);
+app.post('/api/v1/auth/reset-link', auth.resetLink);
+app.post('/api/v1/auth/reset-password', auth.resetPassword);
+app.post('/api/v1/auth/change-password', auth.changePassword);
 
-api.use(function (err, req, res, next) {
+app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
         res.status(401).send({message: 'Invalid token'});
     } else {
@@ -38,7 +38,7 @@ api.use(function (err, req, res, next) {
     }
 });
 
-api.listen(8081, err => {
+app.listen(8081, err => {
     if(err){
         console.log('Could not start server');
         console.log(err);

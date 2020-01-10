@@ -39,7 +39,7 @@ if(this.state.name === "" ||
    this.state.description !== "" ||
    this.state.date !== "" || 
    this.state.price !== ""){
-  axios.post('https://hidden-everglades-59214.herokuapp.com/api/v1/products/', {
+  axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/products/', {
     name: this.state.name,
   type: this.state.type,
   description: this.state.description,

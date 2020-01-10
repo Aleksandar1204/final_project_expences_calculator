@@ -29,7 +29,7 @@ class Login extends React.Component {
                 alert("Please fill in the required fields:")
             }else if(this.state.email !== '' || this.state.password !== ''){
                 event.preventDefault()
-                axios.post('https://hidden-everglades-59214.herokuapp.com/api/v1/auth/login', {
+                axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/auth/login', {
                     email: this.state.email,
                     password: this.state.password
                 })
