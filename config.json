@@ -1,12 +1,12 @@
 {
     "db":{ 
-        "host": "cluster0-mpzfl.mongodb.net",
-        "dbname": "expences",
-        "username": "dev",
-        "password": "DEV123!"
+        "host": "",
+        "dbname": "",
+        "username": "",
+        "password": ""
 
     },
     "jwt":{
-        "key":"kluch"
+        "key":""
     }
 }
