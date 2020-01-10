@@ -105,7 +105,7 @@ render(){
     <div class="products-add">
     <i class="fas fa-plus-circle fa-3x"></i>
     <p>You are creating a new product</p>
-</div>sss
+</div>
 
 </div>
 

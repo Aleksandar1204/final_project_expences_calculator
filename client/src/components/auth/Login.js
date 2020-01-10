@@ -32,7 +32,7 @@ class Login extends React.Component {
                 axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/auth/login', {
                     email: this.state.email,
                     password: this.state.password
-                })sss
+                })
                 .then(res => {
                     localStorage.setItem('jwt', res.data.jwt);
                     localStorage.setItem('first_name', res.data.first_name);
