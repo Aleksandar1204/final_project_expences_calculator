@@ -1,7 +1,7 @@
 {
     "db":{ 
         "host": "cluster0-mpzfl.mongodb.net",
-        "dbname": "videoteka",
+        "dbname": "expences",
         "username": "dev",
         "password": "DEV123!"
 
