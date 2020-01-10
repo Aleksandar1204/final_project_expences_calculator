@@ -10,7 +10,7 @@ mongoose.connect(
     )
   .then(res => {
     //console.log(res);
-  })xxx
+  })
   .catch(err => {
     console.log(err);
   });
