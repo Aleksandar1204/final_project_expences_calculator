@@ -13,11 +13,11 @@ api.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-api.listen(8081, err => {
+api.listen(8082, err => {
     if(err){
         console.log('could not start server');
         console.log(err);
         return;
     }
-    console.log('server started successfully on port 8081');
+    console.log('server started successfully on port 8082');
 });

@@ -4,20 +4,21 @@ const proxy = require('http-proxy');
 var api = express();
 var apiProxy = proxy.createProxyServer();
 
-api.all('/api/v1/auth/*', (req, res) =>{
+api.all('/api/v1/products/*', (req, res) =>{
     apiProxy.web(req, res, {target: 'http://localhost:8080'});
 
 });
 
-api.all('/api/v1/products/*', (req, res) =>{
-    apiProxy.web(req, res, {target: 'http://localhost:8082'});
+
+api.all('/api/v1/auth/*', (req, res) =>{
+    apiProxy.web(req, res, {target: 'http://localhost:8081'});
 
 });
 
 
 api.all('/*', (req,res)=>{
     // res.status(404).send('Not Found!')
-    apiProxy.web(req, res, {target: 'http://localhost:8081'});
+    apiProxy.web(req, res, {target: 'http://localhost:8082'});
 });
 
 api.listen(process.env.PORT, err =>{
