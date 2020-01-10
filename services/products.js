@@ -18,7 +18,7 @@ app.use(
 );
 
 app.get('/api/v1/products/', products.getAll);
-api.get('/api/v1/products/:id', products.getOne);
+app.get('/api/v1/products/:id', products.getOne);
 app.post('/api/v1/products/', products.save);
 app.put('/api/v1/products/:id', products.replace);
 app.patch('/api/v1/products/:id', products.update);
