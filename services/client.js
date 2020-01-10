@@ -14,7 +14,7 @@ app.get('*', function (req, res) {
 });
 
 app.listen(8082, err => {
-    if(err){
+    if(err){ssss
         console.log('could not start server');
         console.log(err);
         return;
