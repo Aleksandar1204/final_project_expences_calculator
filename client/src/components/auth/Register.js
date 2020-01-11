@@ -1,6 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 class Register extends React.Component {
     constructor(props){
@@ -133,7 +135,7 @@ render(){
 </div>
 
      <div class="aditional-info">
-      <p>Or if you don't have an account.<a href="#"> Sign in</a></p>
+      <p>Or if you don't have an account.<Link to="/" className="additional-info"> Sign in</Link></p>
      </div>
 
 </div>
