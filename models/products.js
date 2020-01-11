@@ -8,12 +8,9 @@ const Product = mongoose.model(
         type: String,
         date: Date,
         price: Number,
-        userID: String,
+        user_id: String,
         _created : Date, 
-        _modified : Date
-    }, 
-    {
-        collection: 'products'
+        _modified : Date    
     })
 );
 
@@ -30,7 +27,7 @@ const getAll = (q, sort) => {
 
 const getOne = (id, userID) => {
     return new Promise((success, fail) => {
-        Product.find({_id: id, userID: userID}, (err, data) => {
+        Product.find({_id: id, user_id: userID}, (err, data) => {
             if(err){
                 return fail(err);
             }

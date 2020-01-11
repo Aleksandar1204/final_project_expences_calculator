@@ -31,7 +31,7 @@ const save = (req, res) => {
     if(data.price == undefined || data.price.length == 0) {er++;}
 
     if(er == 0){
-    mProducts.save({...data, userID: req.user.id})
+    mProducts.save({...data, user_id: req.user.id})
     .then(() => {
         res.status(201).send("Created");
     })
