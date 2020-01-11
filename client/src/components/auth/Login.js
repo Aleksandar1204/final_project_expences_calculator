@@ -76,7 +76,7 @@ class Login extends React.Component {
         </div>
 
              <div class="aditional-info">
-              <p>Or if you don't have an account.<a href="#"> Register</a></p>
+              <p>Or if you don't have an account.<Link to="/register" className="additional-info">Register</Link></p>
              </div>
 
     </div>
