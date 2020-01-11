@@ -3,7 +3,7 @@ import React from 'react'
 
 import {} from '../../redux/actions/productAction'
 // import store from '../../redux/store'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
