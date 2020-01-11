@@ -20,7 +20,9 @@ const Routes = () => {
             
             <Switch> 
                 <Route exact path="/" component={Login} />
-                <Route exact path='/newproduct' render={() => <Newproduct component={Newproduct}/>}/>      
+                <Route exact path="/register" component={Register} />  
+                <Route exact path='/newproduct' render={() => <Newproduct component={Newproduct}/>}/>
+                   
             </Switch>
         </Router>
     )
