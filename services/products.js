@@ -17,12 +17,12 @@ app.use(
     )
 );
 
-app.get('/api/v1/products/', products.getAll);
-app.get('/api/v1/products/:id', products.getOne);
-app.post('/api/v1/products/', products.save);
-app.put('/api/v1/products/:id', products.replace);
-app.patch('/api/v1/products/:id', products.update);
-app.delete('/api/v1/products/:id', products.remove);
+app.get('/app/v1/products/', products.getAll);
+app.get('/app/v1/products/:id', products.getOne);
+app.post('/app/v1/products/', products.save);
+app.put('/app/v1/products/:id', products.replace);
+app.patch('/app/v1/products/:id', products.update);
+app.delete('/app/v1/products/:id', products.remove);
 
 app.listen(8080, err =>{
     if(err){

@@ -4,13 +4,13 @@ const proxy = require('http-proxy');
 var app = express();
 var apiProxy = proxy.createProxyServer();
 
-app.all('/api/v1/products/*', (req, res) =>{
+app.all('/app/v1/products/*', (req, res) =>{
     apiProxy.web(req, res, {target: 'http://localhost:8080'});
 
 });
 
 
-app.all('/api/v1/auth/*', (req, res) =>{
+app.all('/app/v1/auth/*', (req, res) =>{
     apiProxy.web(req, res, {target: 'http://localhost:8081'});
 
 });

@@ -18,17 +18,17 @@ app.use(
         {secret: config.getConfig('jwt').key}
     )
     .unless({
-        path: ['/api/v1/auth/register', '/api/v1/auth/login']
+        path: ['/app/v1/auth/register', '/app/v1/auth/login']
     })
 );
 
-app.post('/api/v1/auth/register', auth.register);
-app.post('/api/v1/auth/login', auth.login);
-app.get('/api/v1/auth/user/:email', auth.userInfo);
-app.get('/api/v1/auth/renew', auth.renew);
-app.post('/api/v1/auth/reset-link', auth.resetLink);
-app.post('/api/v1/auth/reset-password', auth.resetPassword);
-app.post('/api/v1/auth/change-password', auth.changePassword);
+app.post('/app/v1/auth/register', auth.register);
+app.post('/app/v1/auth/login', auth.login);
+app.get('/app/v1/auth/user/:email', auth.userInfo);
+app.get('/app/v1/auth/renew', auth.renew);
+app.post('/app/v1/auth/reset-link', auth.resetLink);
+app.post('/app/v1/auth/reset-password', auth.resetPassword);
+app.post('/app/v1/auth/change-password', auth.changePassword);
 
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
