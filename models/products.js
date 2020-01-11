@@ -4,9 +4,9 @@ const Product = mongoose.model(
     'product', 
     new mongoose.Schema({
         name: String,
-        description: Date,
+        description: String,
         type: String,
-        date: Date,
+        date: String,
         price: Number,
         user_id: String,
         _created : Date, 
