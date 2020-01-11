@@ -12,11 +12,11 @@ class Newproduct extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            name:'',
-            type:'',
-            description:'',
-            date:'',
-            price:''
+            name:null,
+            type:null,
+            description:null,
+            date:null,
+            price:null
         }
 
     }
@@ -27,18 +27,18 @@ saveProduct = (event) => {
 }
 
 addNewProduct = (event) => {
-if(this.state.name === "" || 
-   this.state.type === "" || 
-   this.state.description === "" ||
-   this.state.date === "" || 
-   this.state.price === "" ){
+if(this.state.name === null || 
+   this.state.type === null || 
+   this.state.description === null ||
+   this.state.date === null || 
+   this.state.price === null ){
        event.preventDefault()
        alert("Please fill in the required fields:")
-   }else if (this.state.name !== "" || 
-   this.state.type !== "" || 
-   this.state.description !== "" ||
-   this.state.date !== "" || 
-   this.state.price !== ""){
+   }else if (this.state.name !== null || 
+   this.state.type !== null || 
+   this.state.description !== null ||
+   this.state.date !== null || 
+   this.state.price !== null){
   axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/products/', {
     name: this.state.name,
   type: this.state.type,
