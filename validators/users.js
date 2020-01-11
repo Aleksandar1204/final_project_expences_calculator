@@ -3,7 +3,7 @@ const createUser = {
         last_name:"required|string",
         email: "required|email",
         password: "required|string|minLength:3",
-        birthday: "required|date",
+        date_of_birth: "required|date",
         telephone: "required|string",
         country: "required|string"
 }
