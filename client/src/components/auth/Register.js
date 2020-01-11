@@ -85,9 +85,9 @@ render(){
     return(
         <React.Fragment>
             {this.redirectToMain()}
-            <div id="register">
+            
 
-<div class="box-container">
+<div class="box-container" id="register">
     
     <form>
 
@@ -138,7 +138,7 @@ render(){
       <p>Or if you don't have an account.<Link to="/" className="additional-info"> Sign in</Link></p>
      </div>
 
-</div>
+
         </React.Fragment>
     )
 }
