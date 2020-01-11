@@ -63,7 +63,7 @@ class Register extends React.Component {
                             email: this.state.email,
                             password: this.state.password
                         })
-                        then(res=>{
+                        .then(res=>{
                             localStorage.setItem('jwt', res.data.jwt);
                             localStorage.setItem('name', this.state.first_name);
                             localStorage.setItem('lastName', this.state.last_name);
