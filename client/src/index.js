@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Newproduct from './components/Newproduct/Newproduct'
 import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 
 
 
