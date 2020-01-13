@@ -13,8 +13,8 @@ class Newproduct extends React.Component {
         super(props)
         this.state = {
             name: '',
-            type: '',
             description: '',
+            type: '',
             date: '',
             price: ''
         }
