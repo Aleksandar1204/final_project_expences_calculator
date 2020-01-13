@@ -108,7 +108,7 @@ render(){
 
         <p class="input-container"> 
             <label class="text-field-input" for="">Date of Birth</label>
-            <input onChange={this.saveInputValue} type="date" class="text-field"/>
+            <input onChange={this.saveInputValue} type="text" class="text-field"/>
         </p>
 
         <p class="input-container">
