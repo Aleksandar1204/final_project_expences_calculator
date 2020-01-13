@@ -48,6 +48,28 @@ class Table extends React.Component {
     }
 
     render(){
+        let productsTable = null;
+        if(this.props.products){
+            productsTable=this.props.products.map(product)
+            return(
+                <tr key = {product._id}>
+                        <td>{product.name}</td>
+                        <td>{product.type}</td>
+                        <td>{product.description}</td>
+                        <td>{product.date}</td>
+                        <td>{product.price}</td>
+                        <td>
+              <button className="btn btn-secondary" id="edit">
+                Edit
+              </button>
+
+              <button className="btn btn-danger" id="delete">
+                Delete
+              </button>
+                        </td>
+                </tr>
+            )
+        }
         return(
             <React.Fragment>
                 
