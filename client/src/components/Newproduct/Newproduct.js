@@ -28,24 +28,24 @@ saveProduct = (event) => {
 
 addNewProduct = (event) => {
 if(this.state.name === '' || 
+    this.state.description === '' ||
    this.state.type ===  '' || 
-   this.state.description === '' ||
    this.state.date === '' || 
    this.state.price === '' ){
        event.preventDefault()
        alert("Please fill in the required fields:")
    }else if (this.state.name !== '' || 
-   this.state.type !== '' || 
    this.state.description !== '' ||
+   this.state.type !== '' || 
    this.state.date !== '' || 
    this.state.price !== ''){
   axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/products/', {
-    name: this.state.name,
-  type: this.state.type,
-  description: this.state.description,
-  date: this.state.date,
-  price: this.state.price,
-  _created: new Date()},
+            name: this.state.name,
+            description: this.state.description,
+            type: this.state.type,
+            date: this.state.date,
+            price: this.state.price,
+            _created: new Date()},
   
   { headers: {"Authorization" : `Bearer ${localStorage.getItem('jwt')}`}})
   .then(res => {
