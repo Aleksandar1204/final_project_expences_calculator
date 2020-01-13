@@ -72,7 +72,20 @@ class Table extends React.Component {
         }
         return(
             <React.Fragment>
-                
+        <table className="table">
+          <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Type</th>
+                <th>Product Description</th>
+                <th>Purchase Date</th>
+                <th>Product Price</th>
+            </tr>
+          </thead>
+                <tbody>
+                {productsTable}
+                </tbody>
+        </table>
             </React.Fragment>
         )
     }
