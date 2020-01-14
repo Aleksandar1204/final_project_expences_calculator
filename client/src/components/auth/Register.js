@@ -20,7 +20,7 @@ class Register extends React.Component {
     }
 
     saveInputValue = (event) =>{
-        this.setState({[event.targer.id]: event.target.value})
+        this.setState({[event.target.id]: event.target.value})
     }
 
     redirectToMain = () => {
