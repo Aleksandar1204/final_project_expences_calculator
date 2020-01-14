@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import '../../assets/css/auth/login.css'
+import '../../assets/css/shared/shared.css'
 
 class Login extends React.Component {
     constructor(props){
@@ -50,20 +52,20 @@ class Login extends React.Component {
                 <React.Fragment>
                     {this.redirectToMain()}
 
-                    <div className="login">
+                    <div id="login">
 
         <div className="box-container">
             
             <form>
 
                 <p className="input-container"> 
-                    <label class="text-field-input" for="email">E-mail</label>
-                    <input onChange={this.saveInputValue} type="email" name="email" id="email" class="text-field"/>
+                    <label className="text-field-input" htmlFor="email">E-mail</label>
+                    <input onChange={this.saveInputValue} type="email" name="email" id="email" className="text-field"/>
                 </p>
 
                 <p className="input-container"> 
-                        <label className="text-field-input" for="password">Password</label>
-                        <input onChange={this.saveInputValue} type="password" name="password" id="password" class="text-field"/>
+                        <label className="text-field-input" htmlFor="password">Password</label>
+                        <input onChange={this.saveInputValue} type="password"  name="password" id="password" className="text-field"/>
                 </p>
 
                 

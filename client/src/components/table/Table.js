@@ -1,6 +1,13 @@
 import React from "react";
 import axios from "axios";
+
 import './Table.css'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
+
 import { connect } from 'react-redux'
 import store from '../../redux/store'
 
@@ -64,11 +71,11 @@ class Table extends React.Component {
                         <td>{product.price}</td>
                         <td>
                             <button className="btn btn-secondary" id="edit">
-                              Edit
+                            <FontAwesomeIcon icon={faEdit} />
                             </button>
 
                             <button className="btn btn-danger" id="delete">
-                              Delete
+                            <FontAwesomeIcon icon={faTrashAlt} />
                             </button>
                         </td>
                 </tr>

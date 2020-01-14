@@ -2,6 +2,8 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import '../../assets/css/auth/register.css'
+import '../../assets/css/shared/shared.css'
 
 
 class Register extends React.Component {
@@ -86,59 +88,59 @@ render(){
         <React.Fragment>
             {this.redirectToMain()}
             
-
-<div class="box-container" id="register">
+<div id="register">
+<div className="box-container">
     
     <form>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="">First Name</label>
-            <input onChange={this.saveInputValue} type="text" id="first_name" class="text-field"/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="">First Name</label>
+            <input onChange={this.saveInputValue} type="text" id="first_name" className="text-field"/>
         </p>
 
-        <p class="input-container"> 
-                <label class="text-field-input" for="">Last Name</label>
-                <input onChange={this.saveInputValue} type="text" id="last_name" class="text-field"/>
+        <p className="input-container"> 
+                <label className="text-field-input" htmlFor="">Last Name</label>
+                <input onChange={this.saveInputValue} type="text" id="last_name" className="text-field"/>
         </p>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="">E-mail</label>
-            <input onChange={this.saveInputValue} type="email" id="email" class="text-field"/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="">E-mail</label>
+            <input onChange={this.saveInputValue} type="email" id="email" className="text-field"/>
         </p>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="">Date of Birth</label>
-            <input onChange={this.saveInputValue} type="text" id="date_of_birth" class="text-field"/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="">Date of Birth</label>
+            <input onChange={this.saveInputValue} type="text" id="date_of_birth" className="text-field"/>
         </p>
 
-        <p class="input-container">
-            <label class="text-field-input" for="">Telephone</label>
-            <input onChange={this.saveInputValue} type="text" id="telephone" class="text-field"/>
+        <p className="input-container">
+            <label className="text-field-input" htmlFor="">Telephone</label>
+            <input onChange={this.saveInputValue} type="text" id="telephone" className="text-field"/>
         </p>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="">Country</label>
-            <input onChange={this.saveInputValue} type="text" id="country" class="text-field"/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="">Country</label>
+            <input onChange={this.saveInputValue} type="text" id="country" className="text-field"/>
         </p>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="">Password</label>
-            <input onChange={this.saveInputValue} type="password" id="password" class="text-field"/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="">Password</label>
+            <input onChange={this.saveInputValue} type="password" id="password" className="text-field"/>
         </p>
         
 
-        <button onClick={this.registerUser} type="submit" class="primary-button">REGISTER</button>
+        <button onClick={this.registerUser} type="submit" className="primary-button">REGISTER</button>
    
         
     </form>
     
 </div>
 
-     <div class="aditional-info">
-      <p>Or if you don't have an account.<Link to="/" className="additional-info"> Sign in</Link></p>
+     <div className="aditional-info">
+      <p>Or if you don't have an account.<Link to="/" > Sign in</Link></p>
      </div>
 
-
+     </div>
         </React.Fragment>
     )
 }
