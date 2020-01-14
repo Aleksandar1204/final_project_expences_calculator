@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './Table.css'
 import { connect } from 'react-redux'
 import store from '../../redux/store'
 
