@@ -50,33 +50,33 @@ class Login extends React.Component {
                 <React.Fragment>
                     {this.redirectToMain()}
 
-                    <div id="login">
+                    <div className="login">
 
-        <div class="box-container">
+        <div className="box-container">
             
             <form>
 
-                <p class="input-container"> 
+                <p className="input-container"> 
                     <label class="text-field-input" for="email">E-mail</label>
                     <input onChange={this.saveInputValue} type="email" name="email" id="email" class="text-field"/>
                 </p>
 
-                <p class="input-container"> 
-                        <label class="text-field-input" for="password">Password</label>
+                <p className="input-container"> 
+                        <label className="text-field-input" for="password">Password</label>
                         <input onChange={this.saveInputValue} type="password" name="password" id="password" class="text-field"/>
                 </p>
 
                 
 
-                <button class="primary-button" type="submit" onClick={this.logIn}>SIGN IN</button>
+                <button className="primary-button" type="submit" onClick={this.logIn}>SIGN IN</button>
            
                 
             </form>
             
         </div>
 
-             <div class="textDiv">
-              <p>Or if you don't have an account.<Link to="/register" class="additional-info">Register</Link></p>
+             <div className="aditional-info">
+              <p>Or if you don't have an account.<Link to="/register" >Register</Link></p>
              </div>
 
     </div>
