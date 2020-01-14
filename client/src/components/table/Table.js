@@ -78,7 +78,8 @@ class Table extends React.Component {
     
         return(
             <React.Fragment>
-        <table className="table">
+                <div className="table-container">
+        <table>
           <thead>
             <tr>
                 <th>Product Name</th>
@@ -92,6 +93,7 @@ class Table extends React.Component {
                 {productsTable}
                 </tbody>
         </table>
+        </div>
             </React.Fragment>
         )
     }
