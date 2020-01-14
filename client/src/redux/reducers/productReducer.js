@@ -1,5 +1,6 @@
 const initState = {
     products: [],
+    tableUpdated: false
 }
 
 export function productReducer(state = initState, action) {
@@ -20,7 +21,9 @@ export function productReducer(state = initState, action) {
             })
             return { ...state, products: newProducts }
         }
-      
+        case "TABLE_UPDATED": {
+            return { ...state, tableUpdated: action.tableUpdated }
+        }     
         default:
             return state
     }

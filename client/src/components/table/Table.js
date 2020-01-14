@@ -3,13 +3,13 @@ import axios from "axios";
 import { connect } from 'react-redux'
 import store from '../../redux/store'
 
-import { getProducts } from "../../redux/actions/productAction";
+import { getProducts, tableUpdated } from "../../redux/actions/productAction";
 
 class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-
+            product: null
         }
     }
 
@@ -31,26 +31,29 @@ class Table extends React.Component {
     }
 
     componentDidUpdate() {
-        
+        if (this.props.tableUpdated){
         axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/',
         {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+            
             }
         })
+        
         .then(res => {
             store.dispatch(getProducts(res.data))
+            store.dispatch(tableUpdated(false));
         })
         .catch(err => {
             console.log(err)
         })
-    
+    }
     }
 
     render(){
         let productsTable = null;
         if(this.props.products){
-            productsTable=this.props.products.map(product)
+            productsTable=this.props.products.map(product => {   
             return(
                 <tr key = {product._id}>
                         <td>{product.name}</td>
@@ -59,17 +62,19 @@ class Table extends React.Component {
                         <td>{product.date}</td>
                         <td>{product.price}</td>
                         <td>
-              <button className="btn btn-secondary" id="edit">
-                Edit
-              </button>
+                            <button className="btn btn-secondary" id="edit">
+                              Edit
+                            </button>
 
-              <button className="btn btn-danger" id="delete">
-                Delete
-              </button>
+                            <button className="btn btn-danger" id="delete">
+                              Delete
+                            </button>
                         </td>
                 </tr>
             )
+        })
         }
+    
         return(
             <React.Fragment>
         <table className="table">
@@ -94,7 +99,8 @@ class Table extends React.Component {
 
 function mapStateToProps (state) {
     return {
-        products: state.productReducer.products
+        products: state.productReducer.products,
+        tableUpdated: state.productReducer.tableUpdated
     }
 }
 

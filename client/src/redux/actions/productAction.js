@@ -17,5 +17,10 @@ export const deleteProduct = (product) => {
         payload: product
     }
 }
-
+export const tableUpdated = (tableUpdated) => {
+    return {
+        type: "TABLE_UPDATED",
+        tableUpdated
+    }
+}
 
