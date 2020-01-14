@@ -93,37 +93,37 @@ render(){
 
         <p class="input-container"> 
             <label class="text-field-input" for="">First Name</label>
-            <input onChange={this.saveInputValue} type="text" class="text-field"/>
+            <input onChange={this.saveInputValue} type="text" id="first_name" class="text-field"/>
         </p>
 
         <p class="input-container"> 
                 <label class="text-field-input" for="">Last Name</label>
-                <input onChange={this.saveInputValue} type="text" class="text-field"/>
+                <input onChange={this.saveInputValue} type="text" id="last_name" class="text-field"/>
         </p>
 
         <p class="input-container"> 
             <label class="text-field-input" for="">E-mail</label>
-            <input onChange={this.saveInputValue} type="email" class="text-field"/>
+            <input onChange={this.saveInputValue} type="email" id="email" class="text-field"/>
         </p>
 
         <p class="input-container"> 
             <label class="text-field-input" for="">Date of Birth</label>
-            <input onChange={this.saveInputValue} type="text" class="text-field"/>
+            <input onChange={this.saveInputValue} type="text" id="date_of_birth" class="text-field"/>
         </p>
 
         <p class="input-container">
             <label class="text-field-input" for="">Telephone</label>
-            <input onChange={this.saveInputValue} type="text" class="text-field"/>
+            <input onChange={this.saveInputValue} type="text" id="telephone" class="text-field"/>
         </p>
 
         <p class="input-container"> 
             <label class="text-field-input" for="">Country</label>
-            <input onChange={this.saveInputValue} type="text" class="text-field"/>
+            <input onChange={this.saveInputValue} type="text" id="country" class="text-field"/>
         </p>
 
         <p class="input-container"> 
             <label class="text-field-input" for="">Password</label>
-            <input onChange={this.saveInputValue} type="password" class="text-field"/>
+            <input onChange={this.saveInputValue} type="password" id="password" class="text-field"/>
         </p>
         
 
