@@ -11,7 +11,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux'
 import store from '../../redux/store'
 
-import { getProducts, tableUpdated } from "../../redux/actions/productAction";
+import { getProducts, tableUpdated, getTotalPrice } from "../../redux/actions/productAction";
 
 class Table extends React.Component {
     constructor(props){
@@ -31,6 +31,11 @@ class Table extends React.Component {
         })
         .then(res => {
             store.dispatch(getProducts(res.data))
+            let totalPrice = 0;
+            for (let i = 0; i < res.data.length; i++) {
+                totalPrice += parseInt(res.data[i].price)
+            }
+            store.dispatch(getTotalPrice(totalPrice));
         })
         .catch(err => {
             console.log(err)

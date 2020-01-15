@@ -1,6 +1,7 @@
 const initState = {
     products: [],
-    tableUpdated: false
+    tableUpdated: false,
+    totalPrice: '',
 }
 
 export function productReducer(state = initState, action) {
@@ -20,6 +21,9 @@ export function productReducer(state = initState, action) {
                 return action.payload._id !== product._id
             })
             return { ...state, products: newProducts }
+        }
+        case "GET_TOTAL_PRICE": {
+            return { ...state, totalPrice: action.payload }
         }
         case "TABLE_UPDATED": {
             return { ...state, tableUpdated: action.tableUpdated }

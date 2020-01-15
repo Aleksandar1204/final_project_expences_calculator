@@ -11,6 +11,13 @@ export const saveProductAction = (data) => {
     }
 }
 
+export const getTotalPrice = (price) => {
+    return {
+        type: "GET_TOTAL_PRICE",
+        payload: price
+    }
+}
+
 export const deleteProduct = (product) => {
     return {
         type: "DELETE_PRODUCT",
