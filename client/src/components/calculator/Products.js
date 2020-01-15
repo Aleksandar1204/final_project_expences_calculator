@@ -4,7 +4,7 @@ import axios from 'axios'
 import { getProducts } from '../../redux/actions/productAction'
 import store from '../../redux/store'
 
-import Table from '../table/Table'
+
 
 
 class Products extends React.Component {
@@ -53,7 +53,7 @@ class Products extends React.Component {
                         </select>
                     </label>
                 </div>
-                <Table/>
+                <this.props.table />
             </React.Fragment>
         )
     }
