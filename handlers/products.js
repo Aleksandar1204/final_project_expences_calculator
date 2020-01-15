@@ -26,7 +26,7 @@ const getAll = (req, res) => {
             sort[sq[0]] = sq[1] == 'desc' ? -1 : 1;
         }
     }
-    mProducts.getAll(req.data)
+    mProducts.getAll(q, sort)
     .then(data => {
         res.status(200).send(data);
     })
