@@ -17,7 +17,7 @@ class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            
+            didUpdate: false
         }
     }
 
@@ -36,7 +36,7 @@ class Table extends React.Component {
                 totalPrice += parseInt(res.data[i].price)
             }
             store.dispatch(getTotalPrice(totalPrice));
-            
+            this.setState({didUpdate: false})
         })
         .catch(err => {
             console.log(err)
@@ -45,7 +45,7 @@ class Table extends React.Component {
     }
 
     componentDidUpdate() {
-        if(this.props.tableUpdated){
+        if(this.state.didUpdate === true){
         axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
         {
             headers: {
@@ -62,10 +62,10 @@ class Table extends React.Component {
             console.log(err)
         })
     
-    }
+        this.setState({didUpdate: false})
     }
     
-
+}
     render(){
         let productsTable = null;
         if(this.props.products){
