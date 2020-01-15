@@ -4,14 +4,15 @@ import axios from 'axios'
 import { getProducts } from '../../redux/actions/productAction'
 import store from '../../redux/store'
 
-
+import Table from '../table/Table'
 
 
 class Products extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            filterOption: null
+            filterOption: null,
+            showProducts: true,
         }
     }
 
@@ -53,7 +54,7 @@ class Products extends React.Component {
                         </select>
                     </label>
                 </div>
-                <this.props.table />
+                <Table showProducts={this.state.showProducts}/>
             </React.Fragment>
         )
     }
