@@ -44,7 +44,7 @@ class Products extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div id="products">
+                
                 <div className="main-div">
                     <h3>Products</h3>
                     <label htmlFor="sort">Filter by:
@@ -57,7 +57,7 @@ class Products extends React.Component {
                     </label>
                 </div>
                 <Table/>
-                </div>
+                
                 
             </React.Fragment>
         )
