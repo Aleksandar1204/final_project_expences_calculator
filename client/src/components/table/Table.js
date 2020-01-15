@@ -67,7 +67,7 @@ class Table extends React.Component {
                         <td>{product.name}</td>
                         <td>{product.type}</td>
                         <td>{product.description}</td>
-                        <td>{product.date}</td>
+                        <td>{product.date.toString().slice(0, 10)}</td>
                         <td>{product.price}</td>
                         <td>
                             <button className="btn btn-secondary" id="edit">
