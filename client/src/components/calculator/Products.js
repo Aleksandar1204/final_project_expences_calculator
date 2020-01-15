@@ -18,6 +18,7 @@ class Products extends React.Component {
     }
 
     componentDidUpdate() {
+        if(this.state.didUpdate === true){
         if(this.state.filterOption !== null) {
             axios.get(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=${this.state.filterOption}`,
                 {
@@ -33,10 +34,11 @@ class Products extends React.Component {
                 .catch(err => {
                     console.log(err);
                 })
-                this.setState({didUpdate: false})
+                
         }
+        this.setState({didUpdate: false})
     }
-
+    }
     filterHandler = (event) => {
         this.setState({ filterOption: event.target.value })
 
