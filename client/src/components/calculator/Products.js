@@ -13,12 +13,12 @@ class Products extends React.Component {
         super(props)
         this.state = {
             filterOption: null,
-            didUpdate: false
+            
         }
     }
 
     componentDidUpdate() {
-        if(this.state.didUpdate === true){
+        if(this.state.filterOption !== null) {
             axios.get(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=${this.state.filterOption}`,
                 {
                     headers: {
@@ -33,7 +33,7 @@ class Products extends React.Component {
                 .catch(err => {
                     console.log(err);
                 })
-                this.setState({didUpdate: false}) 
+                
         }
     }
 
