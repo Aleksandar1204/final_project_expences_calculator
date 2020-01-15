@@ -6,7 +6,7 @@ const Product = mongoose.model(
         name: String,
         description: String,
         type: String,
-        date: String,
+        date: Date,
         price: Number,
         user_id: String,
         _created : Date, 

@@ -17,13 +17,13 @@ class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            product: null
+            
         }
     }
 
     componentDidMount() {
         
-        axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/',
+        axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
         {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -40,7 +40,7 @@ class Table extends React.Component {
 
     componentDidUpdate() {
         if (this.props.tableUpdated){
-        axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/',
+        axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
         {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`

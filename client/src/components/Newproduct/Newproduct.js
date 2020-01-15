@@ -85,7 +85,7 @@ render(){
 
         <p class="input-container"> 
             <label class="text-field-input" for="date">Purchase Date</label>
-            <input type="text" name="date" class="text-field" id="date"  onChange={this.saveProduct}/>
+            <input type="date" name="date" class="text-field" id="date"  onChange={this.saveProduct}/>
         </p>
 
         <p class="input-container">
