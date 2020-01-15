@@ -1,6 +1,31 @@
 const mProducts = require('../models/products');
 
 const getAll = (req, res) => {
+    let q = {};
+    q.userID = req.user.id;
+    let sort = {};
+
+    if(req.query.date_from != undefined) {
+        if(q.date == undefined){
+            q.date = {};
+        }
+        q.date.$gte = new Date(Number(req.query.date_from));
+    }
+
+    if(req.query.date_to != undefined) {
+        if(q.date == undefined){
+            q.date = {};
+        }
+        q.date.$lte = new Date(Number(req.query.date_to));
+    }
+
+    if(req.query.sort != undefined) {
+        let sortable = ['date', 'price'];
+        let sq = req.query.sort.split(':');
+        if(sortable.indexOf(sq[0]) > -1){
+            sort[sq[0]] = sq[1] == 'desc' ? -1 : 1;
+        }
+    }
     mProducts.getAll(req.data)
     .then(data => {
         res.status(200).send(data);
