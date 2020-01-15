@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import { getProducts } from '../../redux/actions/productAction'
+import { getProducts, tableUpdated } from '../../redux/actions/productAction'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
 
@@ -28,7 +28,7 @@ class Products extends React.Component {
             )
                 .then(res => {
                     store.dispatch(getProducts(res.data));
-
+                    store.dispatch(tableUpdated(false));
                 })
                 .catch(err => {
                     console.log(err);
@@ -66,6 +66,7 @@ class Products extends React.Component {
 function mapStateToProps (state) {
     return {
         products: state.productReducer.products,
+        tableUpdated: state.productReducer.tableUpdated
     }
 }
 
