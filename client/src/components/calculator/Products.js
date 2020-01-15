@@ -13,7 +13,7 @@ class Products extends React.Component {
         super(props)
         this.state = {
             filterOption: null,
-            
+            didUpdate:false
         }
     }
 
@@ -33,6 +33,7 @@ class Products extends React.Component {
                 .catch(err => {
                     console.log(err);
                 })
+                this.setState({didUpdate: false})
         }
     }
 
