@@ -5,7 +5,7 @@ import { getProducts } from '../../redux/actions/productAction'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
 
-import Table from '../table/Table'
+
 
 
 class Products extends React.Component {
@@ -57,7 +57,7 @@ class Products extends React.Component {
                     </label>
                 </div>
                 </div>
-                <Table/>
+                <this.props.table/>
             </React.Fragment>
         )
     }
