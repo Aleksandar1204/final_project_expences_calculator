@@ -36,7 +36,7 @@ class Table extends React.Component {
                 totalPrice += parseInt(res.data[i].price)
             }
             store.dispatch(getTotalPrice(totalPrice));
-            this.setState({didUpdate: false})
+            
         })
         .catch(err => {
             console.log(err)
