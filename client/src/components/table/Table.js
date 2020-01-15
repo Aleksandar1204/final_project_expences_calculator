@@ -30,7 +30,7 @@ class Table extends React.Component {
             }
         })
         .then(res => {
-            store.dispatch(getProducts(res.data))
+            store.dispatch(getProducts(res.data));
             let totalPrice = 0;
             for (let i = 0; i < res.data.length; i++) {
                 totalPrice += parseInt(res.data[i].price)
@@ -55,7 +55,7 @@ class Table extends React.Component {
         })
         
         .then(res => {
-            store.dispatch(getProducts(res.data))
+            store.dispatch(getProducts(res.data));
             store.dispatch(tableUpdated(false));
         })
         .catch(err => {
