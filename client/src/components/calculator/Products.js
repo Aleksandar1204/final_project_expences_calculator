@@ -34,9 +34,9 @@ class Products extends React.Component {
                 .catch(err => {
                     console.log(err);
                 })
-                
+                this.setState({didUpdate: false})
         }
-        this.setState({didUpdate: false})
+        
     }
     }
     filterHandler = (event) => {
