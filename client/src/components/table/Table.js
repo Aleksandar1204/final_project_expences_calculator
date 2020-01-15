@@ -62,8 +62,9 @@ class Table extends React.Component {
             console.log(err)
         })
     
-    this.setState({didUpdate: false})
+    
     }
+    this.setState({didUpdate: false})
 }
     render(){
         let productsTable = null;
