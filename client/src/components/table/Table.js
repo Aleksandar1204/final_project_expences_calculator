@@ -61,10 +61,10 @@ class Table extends React.Component {
         .catch(err => {
             console.log(err)
         })
-    }
+    
     this.setState({didUpdate: false})
     }
-
+}
     render(){
         let productsTable = null;
         if(this.props.products){
