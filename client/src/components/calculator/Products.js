@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import { getProducts } from '../../redux/actions/productAction'
 import store from '../../redux/store'
+import { connect } from 'react-redux'
 
 import Table from '../table/Table'
 
@@ -43,6 +44,7 @@ class Products extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <div id="products">
                 <div className="main-div">
                     <h3>Products</h3>
                     <label htmlFor="sort">Filter by:
@@ -54,10 +56,17 @@ class Products extends React.Component {
                         </select>
                     </label>
                 </div>
+                </div>
                 <Table showProducts={this.state.showProducts}/>
             </React.Fragment>
         )
     }
 }
 
-export default Products
+function mapStateToProps (state) {
+    return {
+        products: state.productReducer.products,
+    }
+}
+
+export default connect(mapStateToProps)(Products)
