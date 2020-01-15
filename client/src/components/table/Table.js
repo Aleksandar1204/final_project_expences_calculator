@@ -17,7 +17,7 @@ class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            
+            didUpdate: false
         }
     }
 
@@ -61,6 +61,7 @@ class Table extends React.Component {
             console.log(err)
         })
     }
+    this.setState({didUpdate: false})
     }
 
     render(){
