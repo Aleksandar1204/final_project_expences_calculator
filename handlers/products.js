@@ -2,7 +2,7 @@ const mProducts = require('../models/products');
 
 const getAll = (req, res) => {
     let q = {};
-    q.userID = req.user.id;
+    q.user_id = req.user.id;
     let sort = {};
 
     if(req.query.date_from != undefined) {
