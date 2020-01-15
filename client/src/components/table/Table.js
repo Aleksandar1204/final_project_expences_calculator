@@ -22,7 +22,7 @@ class Table extends React.Component {
     }
 
     componentDidMount() {
-        
+        if (this.props.products)
         axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
         {
             headers: {
