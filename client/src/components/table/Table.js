@@ -44,7 +44,7 @@ class Table extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.props.tableUpdated){
+        if(this.state.didUpdate === true){
         axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
         {
             headers: {
