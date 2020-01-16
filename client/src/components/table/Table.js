@@ -35,7 +35,7 @@ class Table extends React.Component {
                         <td>{product.price}</td>
                         <td>
                             <Link to="/edit-product">
-                            <button className="btn-secondary" title="Edit this product" id="edit" onClick={this.props.editProduct}>
+                            <button className="btn-secondary" title="Edit this product" id="edit" onClick={this.props.editProduct()}>
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
