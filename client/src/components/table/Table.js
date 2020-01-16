@@ -35,7 +35,7 @@ class Table extends React.Component {
                         <td>{product.price}</td>
                         <td>
                             <button className="btn btn-secondary" id="edit">
-                            <FontAwesomeIcon icon={faEdit} />
+                            <FontAwesomeIcon icon={faEdit} style={{ hover: 'green' }} />
                             </button>
 
                             <button className="btn btn-danger" id="delete">
@@ -45,7 +45,7 @@ class Table extends React.Component {
                 </tr>
             )
         })
-        }
+    }
     
         return(
             <React.Fragment>

@@ -83,18 +83,13 @@ class Products extends React.Component {
 }
 }
 
-    
-       
-    
+filterHandler = (event) => {
+    this.setState({
+        didUpdate: true,
+        filterOption: event.target.value
+    })
 
-    filterHandler = (event) => {
-        this.setState({
-            didUpdate: true,
-            filterOption: event.target.value
-        })
-
-    }
-
+}
     render() {
         return (
             <React.Fragment>
