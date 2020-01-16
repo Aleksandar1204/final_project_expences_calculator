@@ -109,7 +109,7 @@ render(){
         </div>
     <div className="second-container">
     <div className="products-add">
-    <FontAwesomeIcon icon={faPlusCircle } />
+    <FontAwesomeIcon icon={faPlusCircle } style={{ color: '#8D8D8D' } } size="3x" />
     <p>You are creating a new product</p>
 </div>
 
