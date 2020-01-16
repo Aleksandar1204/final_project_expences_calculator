@@ -100,7 +100,7 @@ editProduct = (event) => {
 render(){
     return(
         <React.Fragment>
-            
+            {this.props.editProductClicked ? <h1 id="new-products-h3">Edit Product</h1> : <h1 id="new-products-h3">New Product</h1>}
              <div className="new-container">
         <div className="first-container">
         <div id="new-product">
