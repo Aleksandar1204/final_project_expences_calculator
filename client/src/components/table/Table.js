@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
-
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -34,11 +34,12 @@ class Table extends React.Component {
                         <td>{product.date.toString().slice(0, 10)}</td>
                         <td>{product.price}</td>
                         <td>
-                            <button className="btn-secondary" title="Edit product" id="edit">
+                            <Link to="/edit-product">
+                            <button className="btn-secondary" title="Edit this product" id="edit" onClick={this.props.editProduct}>
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
-
-                            <button className="btn btn-danger" id="delete">
+                            </Link> 
+                            <button className="btn-danger" title="Delete this product" id="delete">
                             <FontAwesomeIcon icon={faTrashAlt} />
                             </button>
                         </td>

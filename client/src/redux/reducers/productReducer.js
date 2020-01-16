@@ -2,6 +2,8 @@ const initState = {
     products: [],
     tableUpdated: false,
     totalPrice: '',
+    productToEdit: '',
+    editProductClicked: '',
 }
 
 export function productReducer(state = initState, action) {
@@ -15,6 +17,13 @@ export function productReducer(state = initState, action) {
             return {
                 ...state, products: [...state.products, action.payload]
             }
+        }
+        case "EDIT_PRODUCT": {
+            return { ...state, productToEdit: action.product }
+        }
+
+        case "EDIT_PRODUCT_CLICKED": {
+            return { ...state, editProductClicked: action.editProductClicked }
         }
         case "DELETE_PRODUCT": {
             let newProducts = state.products.filter(product => {

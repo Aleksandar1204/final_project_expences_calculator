@@ -106,6 +106,7 @@ filterHandler = (event) => {
                     </label>
                 </div>
                 <Table/>
+                
                 <Link to='/newproduct'><button id="new-btn">NEW PRODUCT</button></Link>
                 
             </React.Fragment>
