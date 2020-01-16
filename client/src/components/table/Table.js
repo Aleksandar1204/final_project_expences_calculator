@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+
 
 import './Table.css'
 
@@ -9,9 +9,9 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 
 import { connect } from 'react-redux'
-import store from '../../redux/store'
 
-import { getProducts, tableUpdated, getTotalPrice } from "../../redux/actions/productAction";
+
+
 
 class Table extends React.Component {
     constructor(props){
@@ -21,51 +21,7 @@ class Table extends React.Component {
         }
     }
 
-    componentDidMount() {
-        if (this.props.products){
-        axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
-        {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-            }
-        })
-        .then(res => {
-            store.dispatch(getProducts(res.data));
-            let totalPrice = 0;
-            for (let i = 0; i < res.data.length; i++) {
-                totalPrice += parseInt(res.data[i].price)
-            }
-            store.dispatch(getTotalPrice(totalPrice));
-            
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
-    }
-
-    componentDidUpdate() {
-        if(this.state.didUpdate === true){
-        axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
-        {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-            
-            }
-        })
-        
-        .then(res => {
-            store.dispatch(getProducts(res.data));
-            store.dispatch(tableUpdated(false));
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    
-        this.setState({didUpdate: false})
-    }
-    
-}
+  
     render(){
         let productsTable = null;
         if(this.props.products){
@@ -118,7 +74,7 @@ class Table extends React.Component {
 function mapStateToProps (state) {
     return {
         products: state.productReducer.products,
-        tableUpdated: state.productReducer.tableUpdated
+       
     }
 }
 
