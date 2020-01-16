@@ -34,8 +34,8 @@ class Table extends React.Component {
                         <td>{product.date.toString().slice(0, 10)}</td>
                         <td>{product.price}</td>
                         <td>
-                            <button className="btn btn-secondary" id="edit">
-                            <FontAwesomeIcon icon={faEdit} style={{ hover: 'green' }} />
+                            <button className="btn-secondary" id="edit">
+                            <FontAwesomeIcon icon={faEdit} />
                             </button>
 
                             <button className="btn btn-danger" id="delete">
