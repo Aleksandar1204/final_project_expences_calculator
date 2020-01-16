@@ -65,6 +65,7 @@ if(this.state.name === '' ||
 render(){
     return(
         <React.Fragment>
+            <div id="products">
              <div className="new-container">
         <div className="first-container">
         <div id="new-product">
@@ -113,7 +114,7 @@ render(){
 </div>
 
 </div>
-
+</div>
 
         </React.Fragment>
     )
