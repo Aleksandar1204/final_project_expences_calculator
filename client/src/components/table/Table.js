@@ -34,7 +34,7 @@ class Table extends React.Component {
                         <td>{product.date.toString().slice(0, 10)}</td>
                         <td>{product.price}</td>
                         <td>
-                            <button className="btn-secondary" id="edit">
+                            <button className="btn-secondary" title="Edit product" id="edit">
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
 
