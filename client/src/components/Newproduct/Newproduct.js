@@ -1,11 +1,14 @@
 import React from 'react'
 
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {} from '../../redux/actions/productAction'
 // import store from '../../redux/store'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import axios from 'axios'
+
 
 
 class Newproduct extends React.Component {
@@ -101,9 +104,9 @@ render(){
 </div>
 
         </div>
-    <div class="second-container">
-    <div class="products-add">
-    <i class="fas fa-plus-circle fa-3x"></i>
+    <div className="second-container">
+    <div className="products-add">
+    <FontAwesomeIcon icon={faPlusCircle } />
     <p>You are creating a new product</p>
 </div>
 

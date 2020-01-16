@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
+import '../../assets/css/products/Products.css'
 
+import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
 import Table from '../table/Table'
@@ -109,7 +111,7 @@ class Products extends React.Component {
                     </label>
                 </div>
                 <Table/>
-                
+                <Link to='/newproduct'><button id="new-btn">NEW PRODUCT</button></Link>
                 
             </React.Fragment>
         )
