@@ -65,35 +65,35 @@ if(this.state.name === '' ||
 render(){
     return(
         <React.Fragment>
-             <div class="new-container">
-        <div class="first-container">
+             <div className="new-container">
+        <div className="first-container">
         <div id="new-product">
 
 <form>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="name">Product Name</label>
-            <input type="text" name="name" class="text-field" id="name"  onChange={this.saveProduct}/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="name">Product Name</label>
+            <input type="text" name="name" className="text-field" id="name"  onChange={this.saveProduct}/>
         </p>
 
-        <p class="input-container"> 
-                <label class="text-field-input" for="description">Product Description</label>
-                <input type="text" name="description" class="text-field" id="description"  onChange={this.saveProduct}/>
+        <p className="input-container"> 
+                <label className="text-field-input" htmlFor="description">Product Description</label>
+                <input type="text" name="description" className="text-field" id="description"  onChange={this.saveProduct}/>
         </p>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="type">Product Type</label>
-            <input type="text" name="type" class="text-field" id="type"  onChange={this.saveProduct}/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="type">Product Type</label>
+            <input type="text" name="type" className="text-field" id="type"  onChange={this.saveProduct}/>
         </p>
 
-        <p class="input-container"> 
-            <label class="text-field-input" for="date">Purchase Date</label>
-            <input type="date" name="date" class="text-field" id="date"  onChange={this.saveProduct}/>
+        <p className="input-container"> 
+            <label className="text-field-input" htmlFor="date">Purchase Date</label>
+            <input type="date" name="date" className="text-field" id="date"  onChange={this.saveProduct}/>
         </p>
 
-        <p class="input-container">
-            <label class="text-field-input" for="price">Product Price</label>
-            <input type="text" name="price" class="text-field" id="price"  onChange={this.saveProduct}/>
+        <p className="input-container">
+            <label className="text-field-input" htmlFor="price">Product Price</label>
+            <input type="text" name="price" className="text-field" id="price"  onChange={this.saveProduct}/>
         </p>
 
         <Link to='/products'>
