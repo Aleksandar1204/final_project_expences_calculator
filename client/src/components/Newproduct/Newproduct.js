@@ -75,7 +75,7 @@ editProduct = (event) => {
         event.preventDefault()
     } else {
         store.dispatch(tableUpdated(!this.state.tableUpdated))
-        axios.put(`https://stark-island-29614.herokuapp.com/app/v1/products/${this.props.productToEdit._id}`,
+        axios.put(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/${this.props.productToEdit._id}`,
             {
                 name: this.state.name,
                 type: this.state.type,
@@ -139,8 +139,8 @@ render(){
 
         <Link to='/products'>
         {this.props.editProductClicked ?
-        <button onClick={this.editProduct} id="primary-button" className="primary-btn" type="submit">EDIT PRODUCT</button> :   
-        <button onClick={this.addNewProduct} class="primary-button" type="submit">CREATE PRODUCT</button>}
+        <button onClick={this.editProduct} id="primary-button" className="primary-button" type="submit">EDIT PRODUCT</button> :   
+        <button onClick={this.addNewProduct} className="primary-button" type="submit">CREATE PRODUCT</button>}
         </Link>
         
     </form>
