@@ -50,7 +50,7 @@ class Table extends React.Component {
                             </Link> 
                             <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete">
                             <FontAwesomeIcon icon={faTrashAlt} />
-                            </button>}position="right center"><div><Alert/></div>
+                            </button>}position="center"><div><Alert/></div>
                         </Popup>
                         </td>
                 </tr>

@@ -10,7 +10,7 @@ class Alert extends React.Component  {
             super(props)
             this.state = {
                 productDeleted:false,
-                showAlert:null
+                showModal:null
             }
         }
     deleteProduct = (product, productID) => {
@@ -33,8 +33,9 @@ class Alert extends React.Component  {
   
 render(){
     return (
+        <div>
         <div class="footer">
-        
+        </div>
         <div class="alert-box">
                 <p class="p-header">Delete Product</p>
                 <p>You are about to delete this product. Are you sure you wish to continue? </p>
