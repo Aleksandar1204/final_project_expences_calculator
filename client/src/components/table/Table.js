@@ -1,5 +1,5 @@
 import React from "react";
-
+import Popup from "reactjs-popup";
 
 import './Table.css'
 import store from '../../redux/store'
@@ -29,13 +29,7 @@ class Table extends React.Component {
 
     }
 
-    showDelete = () => {
-        this.setState({
-            showAlert: (
-                <Alert/>
-            )
-        })
-    }
+    
     
     render(){
         let productsTable = null;
@@ -54,9 +48,10 @@ class Table extends React.Component {
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
-                            <button onClick={this.showDelete} className="btn-danger" title="Delete this product" id="delete">
+                            <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete">
                             <FontAwesomeIcon icon={faTrashAlt} />
-                            </button>
+                            </button>}position="right center"><div><Alert/></div>
+                        </Popup>
                         </td>
                 </tr>
             )
