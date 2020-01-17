@@ -22,7 +22,7 @@ class Newproduct extends React.Component {
             description: this.props.editProductClicked ? this.props.productToEdit.description : '',
             date: this.props.editProductClicked ? this.props.productToEdit.date : '',
             price: this.props.editProductClicked ? this.props.productToEdit.price : '',
-            
+            tableUpdated: false
         }
 
     }
@@ -74,7 +74,7 @@ editProduct = (event) => {
         alert('Please fill in the required fields:')
         event.preventDefault()
     } else {
-        store.dispatch(tableUpdated(true))
+        store.dispatch(tableUpdated(!this.state.tableUpdated))
         axios.put(`https://stark-island-29614.herokuapp.com/app/v1/products/${this.props.productToEdit._id}`,
             {
                 name: this.state.name,

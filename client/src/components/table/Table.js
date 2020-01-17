@@ -2,14 +2,14 @@ import React from "react";
 
 
 import './Table.css'
-
+import store from '../../redux/store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-
+import { editProduct, editProductClicked } from "../../redux/actions/productAction";
 
 
 
@@ -17,10 +17,16 @@ class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            
+            editProductClicked: false
         }
     }
 
+    editProduct = (product) => {
+        const clicked = !this.state.editProductClicked
+        store.dispatch(editProduct(product));
+        store.dispatch(editProductClicked(clicked));
+
+    }
   
     render(){
         let productsTable = null;
@@ -35,7 +41,7 @@ class Table extends React.Component {
                         <td>{product.price}</td>
                         <td>
                             <Link to="/edit-product">
-                            <button className="btn-secondary" title="Edit this product" id="edit" onClick={this.props.editProduct}>
+                            <button className="btn-secondary" title="Edit this product" id="edit" onClick={() => this.editProduct(product)}>
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
