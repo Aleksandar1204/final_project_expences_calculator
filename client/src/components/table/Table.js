@@ -11,13 +11,14 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { editProduct, editProductClicked } from "../../redux/actions/productAction";
 
-
+import Alert from '../alert/Alert'
 
 class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            editProductClicked: false
+            editProductClicked: false,
+            showAlert:null
         }
     }
 
@@ -27,7 +28,15 @@ class Table extends React.Component {
         store.dispatch(editProductClicked(clicked));
 
     }
-  
+
+    showDelete = () => {
+        this.setState({
+            showAlert: (
+                <Alert/>
+            )
+        })
+    }
+    
     render(){
         let productsTable = null;
         if(this.props.products){
@@ -45,7 +54,7 @@ class Table extends React.Component {
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
-                            <button className="btn-danger" title="Delete this product" id="delete">
+                            <button onClick={this.showDelete} className="btn-danger" title="Delete this product" id="delete">
                             <FontAwesomeIcon icon={faTrashAlt} />
                             </button>
                         </td>
@@ -81,6 +90,8 @@ class Table extends React.Component {
 function mapStateToProps (state) {
     return {
         products: state.productReducer.products,
+        editProductClicked: state.productReducer.editProductClicked,
+        
        
     }
 }
