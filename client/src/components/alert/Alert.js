@@ -10,7 +10,7 @@ class Alert extends React.Component  {
             super(props)
             this.state = {
                 
-               isOpen:false
+               
             }
         }
     deleteProduct = (product, productID) => {
@@ -40,7 +40,7 @@ render(){
                 <p class="p-header">Delete Product</p>
                 <p>You are about to delete this product. Are you sure you wish to continue? </p>
                 <div class="alert-buttons">
-                <button onClick={() => this.setState({ isOpen: false })}  className="cancel-button" id="close">CANCEL</button>
+                <button onClick={this.props.handleClose}  className="cancel-button" id="close">CANCEL</button>
                 <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
                 </div>
             </div>
@@ -51,7 +51,7 @@ render(){
 }
 function mapStateToProps (state) {
     return {
-        deleteProduct: state.productReducer.product
+        
         
     }
 }
