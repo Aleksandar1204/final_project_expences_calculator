@@ -1,13 +1,21 @@
 import React from 'react'
+import Popup from "reactjs-popup";
 import './Alert.css'
-
+import { deleteProduct } from "../../redux/actions/productAction";
 import { connect } from 'react-redux'
-
+import store from '../../redux/store'
 import axios from 'axios'
 
-const Alert = (props) => {
-   function deleteProduct () {
-        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/`,
+class Alert extends React.Component  {
+        constructor(props){
+            super(props)
+            this.state = {
+                isOpen:false
+               
+            }
+        }
+    deleteProduct = (product, productID) => {
+        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/${productID}`,
             {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -15,7 +23,7 @@ const Alert = (props) => {
             })
             .then(res => {
                 console.log(res)
-                props.handleClose()
+                store.dispatch(deleteProduct(product))
                 
             })
             .catch(err => {
@@ -23,8 +31,12 @@ const Alert = (props) => {
             })
             
     }
-  
 
+    handleClose = () => {
+        this.setState({ isOpen: false });
+      }
+  
+render(){
     return (
         <div>
         <div class="footer">
@@ -33,15 +45,15 @@ const Alert = (props) => {
                 <p class="p-header">Delete Product</p>
                 <p>You are about to delete this product. Are you sure you wish to continue? </p>
                 <div class="alert-buttons">
-                <button onClick={props.handleClose}  className="cancel-button" id="close">CANCEL</button>
-                <button onClick={deleteProduct} className="delete-button">DELETE</button>
+                <Popup content = {<button onClick={this.handleClose}  className="cancel-button" id="close">CANCEL</button>}/>
+                <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
                 </div>
             </div>
             </div>
     )
 }
 
-
+}
 function mapStateToProps (state) {
     return {
         
