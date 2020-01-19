@@ -15,7 +15,7 @@ const Alert = (props) => {
             })
             .then(res => {
                 console.log(res)
-               
+                props.handleClose()
                 
             })
             .catch(err => {
