@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { editProduct, editProductClicked } from "../../redux/actions/productAction";
 
-import Alert from '../alert/Alert'
+import './Alert.css'
 
 class Table extends React.Component {
     constructor(props){
@@ -55,7 +55,19 @@ class Table extends React.Component {
                             </Link> 
                             <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete" >
                             <FontAwesomeIcon icon={faTrashAlt}  />
-                            </button>}position="center"><div><Alert/></div>
+                            </button>} content={<button onClick={this.handleClose}className="cancel-button" id="close">CANCEL</button>} 
+                            position="center">
+                                <div>
+                                <div class="footer">
+                                </div>
+        <div class="alert-box">
+                <p class="p-header">Delete Product</p>
+                <p>You are about to delete this product. Are you sure you wish to continue? </p>
+                <div class="alert-buttons">
+                <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
+                </div>
+            </div>
+                                </div>
         
                         </Popup>
                         </td>
