@@ -57,21 +57,23 @@ class Table extends React.Component {
                             </Link> 
                             <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete" >
                             <FontAwesomeIcon icon={faTrashAlt}  />
-                            </button>} position="right center"  on='click' open={this.state.isOpen} onOpen={this.handleOpen}>
-                                                   <div>
-                                                   <div className="footer">
-                                                   
-                           <div className="alert-box">
-                                   <p className="p-header">Delete Product</p>
-                                   <p>You are about to delete this product. Are you sure you wish to continue? </p>
-                                   <div className="alert-buttons">
-                                   <button onClick={this.handleClose}className="cancel-button" id="close">CANCEL</button>
-                                   <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
-                                   </div>
-                               </div>
-                         </div>
-                         </div>
-                         </Popup>
+                            </button>} position="right center"
+
+                            content ={
+                                                    <div>
+                                                    <div className="footer">
+                                                    
+                            <div className="alert-box">
+                                    <p className="p-header">Delete Product</p>
+                                    <p>You are about to delete this product. Are you sure you wish to continue? </p>
+                                    <div className="alert-buttons">
+                                    <button onClick={this.handleClose}className="cancel-button" id="close">CANCEL</button>
+                                    <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
+                                    </div>
+                                </div>
+                          </div>
+                          </div>}   on='click' open={this.state.isOpen} onOpen={this.handleOpen}
+                      />
                         </td>
                 </tr>
             )
