@@ -57,7 +57,7 @@ class Table extends React.Component {
                             </Link> 
                             <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete" >
                             <FontAwesomeIcon icon={faTrashAlt}  />
-                            </button>} content={
+                            </button>} position="center"  on='click' open={this.state.isOpen} onOpen={this.handleOpen}>
                                                    <div>
                                                    <div class="footer">
                                                    </div>
@@ -69,7 +69,8 @@ class Table extends React.Component {
                                    <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
                                    </div>
                                </div>
-                         </div>} position="center"  on='click' open={this.state.isOpen} onOpen={this.handleOpen}/>
+                         </div>
+                         </Popup>
                         </td>
                 </tr>
             )
