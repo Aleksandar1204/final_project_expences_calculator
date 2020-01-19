@@ -33,7 +33,9 @@ class Table extends React.Component {
         this.setState({ isOpen: false });
       }
 
-
+      handleOpen = () => {
+        this.setState({ isOpen: true });
+      }
     
     
     render(){
@@ -67,7 +69,7 @@ class Table extends React.Component {
                                    <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
                                    </div>
                                </div>
-                         </div>} position="center"/>
+                         </div>} position="center"  on='click' open={this.state.isOpen} onOpen={this.handleOpen}/>
                         </td>
                 </tr>
             )
