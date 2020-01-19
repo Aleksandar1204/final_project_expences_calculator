@@ -32,6 +32,10 @@ class Table extends React.Component {
     handleClose = () => {
         this.setState({ isOpen: false });
       }
+
+      handleOpen = () => {
+        this.setState({ isOpen: true });
+      }
     
     
     render(){
@@ -51,9 +55,10 @@ class Table extends React.Component {
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
-                            <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete">
-                            <FontAwesomeIcon icon={faTrashAlt} />
+                            <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete" on='click' open={this.state.isOpen} onOpen={this.handleOpen}>
+                            <FontAwesomeIcon icon={faTrashAlt}  />
                             </button>}position="center"><div><Alert handleClose={this.handleClose}/></div>
+        
                         </Popup>
                         </td>
                 </tr>
