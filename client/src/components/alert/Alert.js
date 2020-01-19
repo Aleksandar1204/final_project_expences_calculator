@@ -1,20 +1,13 @@
 import React from 'react'
 import './Alert.css'
-import { deleteProduct } from "../../redux/actions/productAction";
+
 import { connect } from 'react-redux'
-import store from '../../redux/store'
+
 import axios from 'axios'
 
-class Alert extends React.Component  {
-        constructor(props){
-            super(props)
-            this.state = {
-                
-               
-            }
-        }
-    deleteProduct = (product, productID) => {
-        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/${productID}`,
+const Alert = (props) => {
+   function deleteProduct () {
+        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/`,
             {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -22,7 +15,7 @@ class Alert extends React.Component  {
             })
             .then(res => {
                 console.log(res)
-                store.dispatch(deleteProduct(product))
+               
                 
             })
             .catch(err => {
@@ -31,7 +24,7 @@ class Alert extends React.Component  {
             
     }
   
-render(){
+
     return (
         <div>
         <div class="footer">
@@ -40,15 +33,15 @@ render(){
                 <p class="p-header">Delete Product</p>
                 <p>You are about to delete this product. Are you sure you wish to continue? </p>
                 <div class="alert-buttons">
-                <button onClick={this.props.handleClose}  className="cancel-button" id="close">CANCEL</button>
-                <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
+                <button onClick={props.handleClose}  className="cancel-button" id="close">CANCEL</button>
+                <button onClick={deleteProduct} className="delete-button">DELETE</button>
                 </div>
             </div>
             </div>
     )
 }
 
-}
+
 function mapStateToProps (state) {
     return {
         
