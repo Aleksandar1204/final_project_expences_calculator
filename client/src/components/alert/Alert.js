@@ -9,8 +9,8 @@ class Alert extends React.Component  {
         constructor(props){
             super(props)
             this.state = {
-                productDeleted:false,
-                showModal:null
+                
+               isOpen:false
             }
         }
     deleteProduct = (product, productID) => {
@@ -28,7 +28,7 @@ class Alert extends React.Component  {
             .catch(err => {
                 console.log(err)
             })
-            this.setState({productDeleted: true})
+            
     }
   
 render(){
@@ -40,7 +40,7 @@ render(){
                 <p class="p-header">Delete Product</p>
                 <p>You are about to delete this product. Are you sure you wish to continue? </p>
                 <div class="alert-buttons">
-                <button onClick={() => this.setState({ showModal: null })}  className="cancel-button" id="close">CANCEL</button>
+                <button onClick={() => this.setState({ isOpen: false })}  className="cancel-button" id="close">CANCEL</button>
                 <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
                 </div>
             </div>
