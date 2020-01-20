@@ -51,7 +51,7 @@ class Table extends React.Component {
                                    <p>You are about to delete this product. Are you sure you wish to continue? </p>
                                    <div className="alert-buttons">
                                    <button  onClick={() => this.setState({ showModal: null })} className="cancel-button" id="close">CANCEL</button>
-                                   <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
+                                   <button onClick={() => this.deleteProduct()} className="delete-button">DELETE</button>
                                    </div>
                                </div>
                                </div>   
