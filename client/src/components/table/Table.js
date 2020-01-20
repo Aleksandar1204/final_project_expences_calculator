@@ -32,6 +32,7 @@ class Table extends React.Component {
             .then(res => {
                 console.log(res)
                 store.dispatch(deleteProduct(_id))
+                this.setState({ showModal: null })
                 
             })
             .catch(err => {
