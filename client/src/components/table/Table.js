@@ -97,6 +97,7 @@ class Table extends React.Component {
         return(
             <React.Fragment>
                 <div className="table-container">
+                {this.state.showModal}
         <table>
           <thead>
             <tr>
