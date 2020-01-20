@@ -25,12 +25,12 @@ export function productReducer(state = initState, action) {
         case "EDIT_PRODUCT_CLICKED": {
             return { ...state, editProductClicked: action.editProductClicked }
         }
-        case "DELETE_PRODUCT": {
-            let newProducts = state.products.filter(product => {
-                return action.payload._id !== product._id
-            })
-            return { ...state, products: newProducts }
-        }
+        case "DELETE_PRODUCT": 
+        return{
+            ...state,
+            products: state.products.filter(product => product._id !== action.payload)   
+            }
+            
         case "GET_TOTAL_PRICE": {
             return { ...state, totalPrice: action.payload }
         }

@@ -32,10 +32,10 @@ export const editProductClicked = (editProductClicked) => {
     }
 }
 
-export const deleteProduct = (product) => {
+export const deleteProduct = (_id) => {
     return {
         type: "DELETE_PRODUCT",
-        payload: product
+        payload: _id
     }
 }
 export const tableUpdated = (tableUpdated) => {

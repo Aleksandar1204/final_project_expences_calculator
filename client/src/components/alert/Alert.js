@@ -14,8 +14,8 @@ class Alert extends React.Component  {
                
             }
         }
-    deleteProduct = (product, productID) => {
-        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/${productID}`,
+    deleteProduct = (_id) => {
+        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/${_id}`,
             {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -23,7 +23,7 @@ class Alert extends React.Component  {
             })
             .then(res => {
                 console.log(res)
-                store.dispatch(deleteProduct(product))
+                store.dispatch(deleteProduct(_id))
                 
             })
             .catch(err => {
