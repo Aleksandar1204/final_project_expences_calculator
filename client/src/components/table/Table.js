@@ -84,7 +84,7 @@ class Table extends React.Component {
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
-                                <button  className="btn-danger" title="Delete this product" id="delete"  onClick={this.showAlert} >
+                                <button  className="btn-danger" title="Delete this product" id="delete"  onClick={()=> this.showAlert(product._id)} >
                                 <FontAwesomeIcon icon={faTrashAlt}/>
                                 </button>
                          
