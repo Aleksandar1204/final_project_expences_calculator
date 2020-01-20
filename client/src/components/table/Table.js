@@ -42,7 +42,7 @@ class Table extends React.Component {
 
     showAlert = () => {
         this.setState({
-            showModal:(
+            showModal:
                 <div>
                 <div className="footer">
                     </div>
@@ -55,7 +55,7 @@ class Table extends React.Component {
                                    </div>
                                </div>
                                </div>   
-            )
+            
         })
     }
 
