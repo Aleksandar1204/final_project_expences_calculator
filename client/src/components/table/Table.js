@@ -1,5 +1,5 @@
 import React from "react";
-import Popup from "reactjs-popup";
+import axios from 'axios'
 
 import './Table.css'
 import store from '../../redux/store'
@@ -9,7 +9,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { editProduct, editProductClicked } from "../../redux/actions/productAction";
+import { editProduct, editProductClicked, deleteProduct } from "../../redux/actions/productAction";
 
 import './Alert.css'
 
@@ -18,8 +18,45 @@ class Table extends React.Component {
         super(props)
         this.state = {
             editProductClicked: false,
-            isOpen:false
+            showModal:null
         }
+    }
+
+    deleteProduct = (_id) => {
+        axios.delete(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/${_id}`,
+            {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+                }
+            })
+            .then(res => {
+                console.log(res)
+                store.dispatch(deleteProduct(_id))
+                
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            
+    }
+
+    showAlert = () => {
+        this.setState({
+            showModal:(
+                <div>
+                <div className="footer">
+                    </div>
+                           <div className="alert-box">
+                                   <p className="p-header">Delete Product</p>
+                                   <p>You are about to delete this product. Are you sure you wish to continue? </p>
+                                   <div className="alert-buttons">
+                                   <button  onClick={() => this.setState({ showModal: null })} className="cancel-button" id="close">CANCEL</button>
+                                   <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
+                                   </div>
+                               </div>
+                               </div>   
+            )
+        })
     }
 
     editProduct = (product) => {
@@ -29,15 +66,7 @@ class Table extends React.Component {
 
     }
 
-    handleClose = () => {
-        this.setState({ isOpen: false });
-      }
-
-      handleOpen = () => {
-        this.setState({ isOpen: true });
-      }
-    
-    
+  
     render(){
         let productsTable = null;
         if(this.props.products){
@@ -55,24 +84,10 @@ class Table extends React.Component {
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
-                            <Popup trigger={<button  className="btn-danger" title="Delete this product" id="delete" ><FontAwesomeIcon icon={faTrashAlt}/></button>}
-                               on='click' open={this.state.isOpen} onOpen={this.handleOpen} 
-                            >
-                                                   
-                                                   <div className="footer">
-                                                       </div>
-                                                   
-                           <div className="alert-box">
-                                   <p className="p-header">Delete Product</p>
-                                   <p>You are about to delete this product. Are you sure you wish to continue? </p>
-                                   <div className="alert-buttons">
-                                   <button onClick={this.handleClose}className="cancel-button" id="close">CANCEL</button>
-                                   <button onClick={this.deleteProduct} className="delete-button">DELETE</button>
-                                   </div>
-                               </div>
+                                <button  className="btn-danger" title="Delete this product" id="delete"  onClick={this.showAlert} >
+                                <FontAwesomeIcon icon={faTrashAlt}/>
+                                </button>
                          
-                         
-                         </Popup>
                         </td>
                 </tr>
             )
