@@ -31,7 +31,12 @@ export const editProductClicked = (editProductClicked) => {
         editProductClicked
     }
 }
-
+export const expensesClicked = (expensesClicked) => {
+    return {
+        type: "EXPENSES_CLICKED",
+        expensesClicked
+    }
+}
 export const deleteProduct = (_id) => {
     return {
         type: "DELETE_PRODUCT",

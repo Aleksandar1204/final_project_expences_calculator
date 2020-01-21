@@ -4,6 +4,7 @@ const initState = {
     totalPrice: '',
     productToEdit: '',
     editProductClicked: '',
+    expensesClicked: false,
 }
 
 export function productReducer(state = initState, action) {
@@ -24,6 +25,9 @@ export function productReducer(state = initState, action) {
 
         case "EDIT_PRODUCT_CLICKED": {
             return { ...state, editProductClicked: action.editProductClicked }
+        }
+        case "EXPENSES_CLICKED": {
+            return { ...state, expensesClicked: action.expensesClicked }
         }
         case "DELETE_PRODUCT": 
         return{

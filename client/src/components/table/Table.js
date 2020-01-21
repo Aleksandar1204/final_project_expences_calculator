@@ -44,7 +44,7 @@ class Table extends React.Component {
     showAlert = (product) => {
         this.setState({
             showModal:
-                <div>
+                <div className="main-alert">
                 <div className="footer">
                     </div>
                            <div className="alert-box">
@@ -79,17 +79,17 @@ class Table extends React.Component {
                         <td>{product.description}</td>
                         <td>{product.date.toString().slice(0, 10)}</td>
                         <td>{product.price}</td>
+                        {this.props.showProducts ?  
                         <td>
-                            <Link to="/edit-product">
+                                                    <Link to="/edit-product">
                             <button className="btn-secondary" title="Edit this product" id="edit" onClick={() => this.editProduct(product)}>
                             <FontAwesomeIcon icon={faEdit} />
                             </button>
                             </Link> 
                                 <button  className="btn-danger" title="Delete this product" id="delete"  onClick={()=> this.showAlert(product._id)} >
                                 <FontAwesomeIcon icon={faTrashAlt}/>
-                                </button>
-                         
-                        </td>
+                                </button> 
+                        </td>: null}
                 </tr>
             )
         })
@@ -97,6 +97,7 @@ class Table extends React.Component {
     
         return(
             <React.Fragment>
+                
                 <div className="table-container">
                 {this.state.showModal}
         <table>
@@ -107,6 +108,7 @@ class Table extends React.Component {
                 <th>Product Description</th>
                 <th>Purchase Date</th>
                 <th>Product Price</th>
+                
             </tr>
           </thead>
                 <tbody>
@@ -114,6 +116,7 @@ class Table extends React.Component {
                 </tbody>
         </table>
         </div>
+       
             </React.Fragment>
         )
     }
@@ -124,6 +127,7 @@ function mapStateToProps (state) {
     return {
         products: state.productReducer.products,
         editProductClicked: state.productReducer.editProductClicked,
+      
         
        
     }

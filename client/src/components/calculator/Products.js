@@ -15,7 +15,8 @@ class Products extends React.Component {
         super(props)
         this.state = {
             filterOption: null,
-            didUpdate:false
+            didUpdate:false,
+            showProducts: true,
         }
     }
 
@@ -104,8 +105,9 @@ filterHandler = (event) => {
                             <option value="price:asc">Lowest Price</option>
                         </select>
                     </label>
+                
+                <Table showProducts={this.state.showProducts}/>
                 </div>
-                <Table/>
                 
                 <Link to='/newproduct'><button id="new-btn">NEW PRODUCT</button></Link>
                 

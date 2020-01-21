@@ -4,6 +4,7 @@ import Newproduct from './components/Newproduct/Newproduct'
 import Products from './components/calculator/Products'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import Expences from './components/calculator/Expences'
 
 
 
@@ -27,6 +28,7 @@ const Routes = () => {
                 <Route exact path='/newproduct' render={() => <Newproduct/>}/>
                 <Route exact path='/products' render={() => <Products/>}/>
                 <Route exact path="/edit-product" render={() => <Newproduct/>} />
+                <Route exact path="/expences" render={() => <Expences/>} />
                    
             </Switch>
         </Router>
