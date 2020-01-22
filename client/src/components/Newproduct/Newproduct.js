@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './Newproduct.css'
-
+import Header from '../header/Header'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -100,6 +100,7 @@ editProduct = (event) => {
 render(){
     return(
         <React.Fragment>
+            <Header/>
             {this.props.editProductClicked ? <h1 id="new-products-h3">Edit Product</h1> : <h1 id="new-products-h3">New Product</h1>}
              <div className="new-container">
         <div className="first-container">

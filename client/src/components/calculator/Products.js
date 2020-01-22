@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import '../../assets/css/products/Products.css'
-
+import Header from '../header/Header'
 import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
@@ -94,7 +94,7 @@ filterHandler = (event) => {
     render() {
         return (
             <React.Fragment>
-                
+                <Header/>
                 <div className="main-div">
                     <h3>Products</h3>
                     <label htmlFor="sort">Filter by:

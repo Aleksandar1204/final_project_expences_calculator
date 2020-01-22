@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import Header from '../header/Header'
 import '../../assets/css/products/Products.css'
 import './Expences.css'
 import { Link } from 'react-router-dom'
@@ -116,7 +116,7 @@ class Expenses extends React.Component {
        
         return (
             <React.Fragment>
-                
+                <Header/>
                 <h3 id="expenses-h3">Expenses</h3>
                 <div className="expenses-div">
                     <Link to="#"><button className={!this.state.active ? 'active-btn select-btn' : 'select-btn'} onClick={this.yearlySelect}>Yearly</button></Link>
