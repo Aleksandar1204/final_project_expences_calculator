@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import '../../assets/css/products/Products.css'
-
+import './Expences.css'
 import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
@@ -35,6 +35,7 @@ class Expenses extends React.Component {
                 })
                 .then(res => {
                     store.dispatch(getProducts(res.data));
+                    
                 })
                 .catch(err => {
                     console.log(err);
@@ -94,13 +95,13 @@ class Expenses extends React.Component {
 
     render() {
 
-        let yearly =
+        let yearly =(
             <select name="year-select" className="month-select" onChange={this.yearlySelectHandler}>
                 <option defaultChecked value='all' > ALL</option>
                 {this.years.map((year, index) => {
                     return <option key={`year${index}`} value={year}>{year}</option>
                 })}
-            </select>;
+        </select>)
 
 
 
@@ -112,12 +113,7 @@ class Expenses extends React.Component {
                 })}
             </select>)
 
-        let yearMonthly = (
-            <div className="yearMonthly-div">
-                {monthly}
-                {yearly}
-            </div>
-        )
+       
         return (
             <React.Fragment>
                 
@@ -126,8 +122,8 @@ class Expenses extends React.Component {
                     <Link to="#"><button className={!this.state.active ? 'active-btn select-btn' : 'select-btn'} onClick={this.yearlySelect}>Yearly</button></Link>
                     <Link to="#"><button className={this.state.active ? 'active-btn select-btn' : 'select-btn'} onClick={this.monthlySelect}>Monthly</button></Link>
                     <div className="select-div">
-                        {this.state.monthlyDisplay ? <label htmlFor="month-select">Choose month and year:</label> : <label htmlFor="year-select">Choose year:</label>}
-                        {this.state.monthlyDisplay ? yearMonthly : yearly}
+                        {this.state.monthlyDisplay ? <label htmlFor="month-select">Choose month :</label> : <label htmlFor="year-select">Choose year:</label>}
+                        {this.state.monthlyDisplay ? monthly : yearly}
                     </div>
                 </div>
                 <Table />
@@ -142,6 +138,7 @@ class Expenses extends React.Component {
 function mapStateToProps(state) {
     return {
         totalPrice: state.totalPrice
+        
     }
 }
 
