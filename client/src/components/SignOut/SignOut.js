@@ -1,22 +1,22 @@
 import React from 'react'
-
+import '../table/Alert.css'
 
 const signOut = (props) => {
     return (
-        <div id="alert" className='log-out'>
-        <div id="alert-container">
-            <div id="alert-text-container">
-                <h1>You are signing out</h1>
-                <p>You are about to sign out. Are you sure ?</p>
-            </div>
-            <div id="alert-buttons">
-                <button className="alert-btn" id="cancel-alert-btn" onClick={props.hide}
+        <div className="main-alert">
+                <div className="footer">
+                    </div>
+                           <div className="alert-box">
+                <p className="p-header">You are signing out</p>
+                <p>You are about to sign out. Are you sure ?</p>           
+            <div className="alert-buttons">
+                <button className="cancel-button" id="close" onClick={props.hide}
                 >CANCEL</button>
-                <button className="alert-btn" id="delete-alert-btn" onClick={props.signOutAccepted}
+                <button className="delete-button"  onClick={props.signOutAccepted}
                 >SIGN OUT</button>
             </div>
         </div>
-    </div>
+        </div>
     )
 }
 
