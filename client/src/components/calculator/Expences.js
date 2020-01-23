@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
 import Table from '../table/Table'
-import { getProducts, } from "../../redux/actions/productAction";
+import { getProducts, getTotalPrice } from "../../redux/actions/productAction";
 
 class Expenses extends React.Component {
     constructor(props) {
@@ -25,7 +25,22 @@ class Expenses extends React.Component {
         this.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
             'September', 'October', 'November', 'December'];
     }
-
+    componentDidMount(){
+        axios.get("https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=purchaseDate:desc", 
+        { headers: {"Authorization" : `Bearer ${localStorage.getItem('jwt')}`}})
+        .then(res=>{
+            store.dispatch(getProducts(res.data))
+            let totalPrice = 0;
+            for (let i = 0; i < res.data.length; i++) {
+                totalPrice += parseInt(res.data[i].price)
+            }
+            this.props.getTotalPrice(totalPrice);
+            console.log('didMount')
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
   
     componentDidUpdate() {
         if (this.state.yearlySelected === 'all') {
@@ -143,7 +158,12 @@ function mapStateToProps(state) {
      totalPrice: state.productReducer.totalPrice
     }
 }
-
+function mapDispatchToProps(dispatch) {
+    return {
+        getTotalPrice: price => dispatch(getTotalPrice(price)),
+        
+    };
+  }
   
 
-export default connect(mapStateToProps)(Expenses)
+export default connect(mapStateToProps,mapDispatchToProps)(Expenses)

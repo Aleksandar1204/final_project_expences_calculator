@@ -126,10 +126,7 @@ class Table extends React.Component {
 function mapStateToProps (state) {
     return {
         products: state.productReducer.products,
-        editProductClicked: state.productReducer.editProductClicked,
-      
-        
-       
+        editProductClicked: state.productReducer.editProductClicked, 
     }
 }
 
