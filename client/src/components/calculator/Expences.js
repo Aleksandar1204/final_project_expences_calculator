@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
 import Table from '../table/Table'
-import { getProducts} from "../../redux/actions/productAction";
+import { getProducts, } from "../../redux/actions/productAction";
 
 class Expenses extends React.Component {
     constructor(props) {
@@ -18,6 +18,7 @@ class Expenses extends React.Component {
             active: false,
             filter: null,
             yearlySelected: null
+            
         }
         this.year = (new Date()).getFullYear() - 20;
         this.years = Array.from(new Array(21), (val, index) => index + this.year);
@@ -25,6 +26,7 @@ class Expenses extends React.Component {
             'September', 'October', 'November', 'December'];
     }
 
+  
     componentDidUpdate() {
         if (this.state.yearlySelected === 'all') {
             axios.get("https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc",
@@ -93,25 +95,26 @@ class Expenses extends React.Component {
         this.setState({ filter: event.target.value })
     }
 
-    render() {
+   
 
-        let yearly =(
+    render() {
+        let yearly =
             <select name="year-select" className="month-select" onChange={this.yearlySelectHandler}>
                 <option defaultChecked value='all' > ALL</option>
                 {this.years.map((year, index) => {
                     return <option key={`year${index}`} value={year}>{year}</option>
                 })}
-        </select>)
+        </select>
 
 
 
-        let monthly = (
+        let monthly = 
             <select name="month-select" className="month-select select-box" onChange={this.monthlySelectHandler}>
                 <option defaultChecked>Month</option>
                 {this.months.map((month, index) => {
                     return <option key={`month${index}`} value={month}>{month}</option>
                 })}
-            </select>)
+            </select>
 
        
         return (
@@ -128,7 +131,7 @@ class Expenses extends React.Component {
                 </div>
                 <Table />
                 <div className="transparent-div">
-                    <p>Total spent: <span>{this.props.totalPrice}</span> den.</p>
+        <p>Total spent:<span>{this.props.totalPrice}</span> den.</p>
                 </div>
             </React.Fragment>
         )
@@ -137,9 +140,10 @@ class Expenses extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        totalPrice: state.totalPrice
-        
+     totalPrice: state.productReducer.totalPrice
     }
 }
+
+  
 
 export default connect(mapStateToProps)(Expenses)

@@ -21,6 +21,9 @@ class Register extends React.Component {
         }
     }
 
+
+
+
     saveInputValue = (event) =>{
         this.setState({[event.target.id]: event.target.value})
     }
@@ -60,8 +63,9 @@ class Register extends React.Component {
                         _created: new Date(),
                     })
                     .then(res => {
-                        console.log(res)
-                        axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/auth/login', {
+                         setTimeout(() => {
+                        axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/auth/login', 
+                        {
                             email: this.state.email,
                             password: this.state.password
                         })
@@ -75,6 +79,7 @@ class Register extends React.Component {
                         .catch(err => {
                             console.log(err)
                         })
+                    },1000)
                     })
                     .catch(err => {
                         console.log(err)
@@ -94,37 +99,37 @@ render(){
     <form>
 
         <p className="input-container"> 
-            <label className="text-field-input" htmlFor="">First Name</label>
+            <label className="text-field-input" htmlFor="first_name">First Name</label>
             <input onChange={this.saveInputValue} type="text" id="first_name" className="text-field"/>
         </p>
 
         <p className="input-container"> 
-                <label className="text-field-input" htmlFor="">Last Name</label>
+                <label className="text-field-input" htmlFor="last_name">Last Name</label>
                 <input onChange={this.saveInputValue} type="text" id="last_name" className="text-field"/>
         </p>
 
         <p className="input-container"> 
-            <label className="text-field-input" htmlFor="">E-mail</label>
+            <label className="text-field-input" htmlFor="email">E-mail</label>
             <input onChange={this.saveInputValue} type="email" id="email" className="text-field"/>
         </p>
 
         <p className="input-container"> 
-            <label className="text-field-input" htmlFor="">Date of Birth</label>
+            <label className="text-field-input" htmlFor="date_of_birth">Date of Birth</label>
             <input onChange={this.saveInputValue} type="date" id="date_of_birth" className="text-field"/>
         </p>
 
         <p className="input-container">
-            <label className="text-field-input" htmlFor="">Telephone</label>
+            <label className="text-field-input" htmlFor="telephone">Telephone</label>
             <input onChange={this.saveInputValue} type="text" id="telephone" className="text-field"/>
         </p>
 
         <p className="input-container"> 
-            <label className="text-field-input" htmlFor="">Country</label>
+            <label className="text-field-input" htmlFor="country">Country</label>
             <input onChange={this.saveInputValue} type="text" id="country" className="text-field"/>
         </p>
 
         <p className="input-container"> 
-            <label className="text-field-input" htmlFor="">Password</label>
+            <label className="text-field-input" htmlFor="password">Password</label>
             <input onChange={this.saveInputValue} type="password" id="password" className="text-field"/>
         </p>
         

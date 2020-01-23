@@ -14,11 +14,6 @@ export function productReducer(state = initState, action) {
                 ...state, products: action.payload
             }
         }
-        case "SAVE_PRODUCT": {
-            return {
-                ...state, products: [...state.products, action.payload]
-            }
-        }
         case "EDIT_PRODUCT": {
             return { ...state, productToEdit: action.product }
         }

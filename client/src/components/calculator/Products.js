@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import { connect } from 'react-redux'
 import Table from '../table/Table'
-import { getProducts, tableUpdated, getTotalPrice } from "../../redux/actions/productAction";
+import { getProducts, tableUpdated, getTotalPrice,editProductClicked,editProduct } from "../../redux/actions/productAction";
 
 
 class Products extends React.Component {
@@ -17,6 +17,8 @@ class Products extends React.Component {
             filterOption: null,
             didUpdate:false,
             showProducts: true,
+            clicked: false,
+            product:null
         }
     }
 
@@ -34,7 +36,7 @@ class Products extends React.Component {
             for (let i = 0; i < res.data.length; i++) {
                 totalPrice += parseInt(res.data[i].price)
             }
-            store.dispatch(getTotalPrice(totalPrice));
+            this.props.getTotalPrice(totalPrice);
             
         })
         .catch(err => {
@@ -91,6 +93,12 @@ filterHandler = (event) => {
     })
 
 }
+
+newProductHandler = () => {
+    this.setState({clicked: true})
+    store.dispatch(editProductClicked(this.state.clicked))
+    this.props.editProduct(this.state.product)
+}
     render() {
         return (
             <React.Fragment>
@@ -109,7 +117,7 @@ filterHandler = (event) => {
                 <Table showProducts={this.state.showProducts}/>
                 </div>
                 
-                <Link to='/newproduct'><button id="new-btn">NEW PRODUCT</button></Link>
+                <Link to='/newproduct'><button id="new-btn" onClick={this.newProductHandler}>NEW PRODUCT</button></Link>
                 
             </React.Fragment>
         )
@@ -119,8 +127,15 @@ filterHandler = (event) => {
 function mapStateToProps (state) {
     return {
         products: state.productReducer.products,
-        tableUpdated: state.productReducer.tableUpdated
+        tableUpdated: state.productReducer.tableUpdated,
+        
+        
     }
 }
-
-export default connect(mapStateToProps)(Products)
+function mapDispatchToProps(dispatch) {
+    return {
+        getTotalPrice: price => dispatch(getTotalPrice(price)),
+        editProduct: productToEdit => dispatch(editProduct(productToEdit))
+    };
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Products)

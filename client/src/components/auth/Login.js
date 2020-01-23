@@ -11,10 +11,12 @@ class Login extends React.Component {
         this.state = {
             email: '',
             password: '',
-            isAuthenticated: false
+            isAuthenticated: false,
+            error: null
         }
     }
 
+   
     saveInputValue = (event) => {
         this.setState({[event.target.id]: event.target.value})
     }
@@ -26,11 +28,7 @@ class Login extends React.Component {
     }
 
         logIn = (event) => {
-            if(this.state.email === '' || this.state.password === ''){
-                event.preventDefault()
-                alert("Please fill in the required fields:")
-            }else if(this.state.email !== '' || this.state.password !== ''){
-                event.preventDefault()
+                event.preventDefault();
                 axios.post('https://hidden-everglades-59214.herokuapp.com/app/v1/auth/login', {
                     email: this.state.email,
                     password: this.state.password
@@ -39,13 +37,14 @@ class Login extends React.Component {
                     localStorage.setItem('jwt', res.data.jwt);
                     localStorage.setItem('first_name', res.data.first_name);
                     localStorage.setItem('last_name', res.data.last_name);
-                    this.setState({ isAuthenticated: true })
+                    this.setState({ isAuthenticated: true, error: false })
                 })
                 .catch(err =>{
+                    this.setState({ error: true})
                     console.log(err)
-                })
+                });
             }
-        }
+        
 
         render(){
             return(
