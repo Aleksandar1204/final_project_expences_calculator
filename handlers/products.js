@@ -27,18 +27,20 @@ const getAll = (req, res) => {
         }
     }
     mProducts.getAll(q, sort)
-    .then(data => {
+    .then(data => {    
         res.status(200).send(data);
+        
     })
     .catch(err =>{
         res.status(500).send(err);
-    });      
+    });    
 }
 
 const getOne = (req, res) => {
     mProducts.getOne(req.params.id, req.user.id)
     .then(data => {
         res.status(200).send(data);
+        
     })
     .catch(err =>{
         res.status(500).send(err);

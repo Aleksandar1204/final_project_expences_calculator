@@ -26,7 +26,7 @@ class Expenses extends React.Component {
             'September', 'October', 'November', 'December'];
     }
     componentDidMount(){
-        axios.get("https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=purchaseDate:desc", 
+        axios.get("https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc", 
         { headers: {"Authorization" : `Bearer ${localStorage.getItem('jwt')}`}})
         .then(res=>{
             store.dispatch(getProducts(res.data))
@@ -57,7 +57,7 @@ class Expenses extends React.Component {
                 .catch(err => {
                     console.log(err);
                 })
-        } else if (this.state.yearlySelected != null && this.state.yearlySelected.length === 4 && !this.state.monthlyDisplay) {
+        } else if (this.state.yearlySelected != null && this.state.yearlySelected.length === 4 ) {
             let dateFrom = new Date(`${this.state.yearlySelected}-01-01 00:00:00.000`).getTime()
             let dateTo = new Date(`${this.state.yearlySelected}-12-31 23:59:59.000`).getTime()
             axios.get(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/?date_from=${dateFrom}&date_to=${dateTo}`,
@@ -70,7 +70,7 @@ class Expenses extends React.Component {
                     store.dispatch(getProducts(res.data))
                 })
                 .catch(err => console.log(err));
-        } else if (this.state.filter != null && this.state.yearlySelected != null && this.state.monthlyDisplay) {
+        } else if (this.state.filter != null  && !this.state.monthlyDisplay) {
             var monthNum;
             for (let i = 0; i < this.months.length; i++) {
                 if (this.state.filter === this.months[i]) {
@@ -80,8 +80,8 @@ class Expenses extends React.Component {
                     }
                 }
             }
-            let dateFrom = new Date(`${this.state.yearlySelected}-${monthNum}-01 00:00:00.000`).getTime()
-            let dateTo = new Date(`${this.state.yearlySelected}-${monthNum}-31 23:59:59.000`).getTime()
+            let dateFrom = new Date(`2000-${monthNum}-01 00:00:00.000`).getTime()
+            let dateTo = new Date(`2020-${monthNum}-31 23:59:59.000`).getTime()
             axios.get(`https://hidden-everglades-59214.herokuapp.com/app/v1/products/?date_from=${dateFrom}&date_to=${dateTo}`,
                 {
                     headers: {
@@ -107,7 +107,7 @@ class Expenses extends React.Component {
         this.setState({ yearlySelected: event.target.value })
     }
     monthlySelectHandler = (event) => {
-        this.setState({ filter: event.target.value })
+        this.setState({  filter: event.target.value })
     }
 
    
@@ -125,7 +125,7 @@ class Expenses extends React.Component {
 
         let monthly = 
             <select name="month-select" className="month-select select-box" onChange={this.monthlySelectHandler}>
-                <option defaultChecked>Month</option>
+                <option defaultChecked value='all' >Month</option>
                 {this.months.map((month, index) => {
                     return <option key={`month${index}`} value={month}>{month}</option>
                 })}

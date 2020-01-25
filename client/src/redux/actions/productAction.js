@@ -31,10 +31,10 @@ export const expensesClicked = (expensesClicked) => {
         expensesClicked
     }
 }
-export const deleteProduct = (_id) => {
+export const deleteProduct = (product) => {
     return {
         type: "DELETE_PRODUCT",
-        payload: _id
+        payload: product
     }
 }
 export const tableUpdated = (tableUpdated) => {

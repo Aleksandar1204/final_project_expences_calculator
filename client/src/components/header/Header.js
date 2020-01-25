@@ -3,8 +3,12 @@ import './Header.css'
 import { NavLink, Link} from 'react-router-dom'
 import SignOut from '../SignOut/SignOut'
 import { expensesClicked } from '../../redux/actions/productAction'
+import { saveUserName } from '../../redux/actions/userAction'
 import store from '../../redux/store'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+
 class Header extends React.Component {
     constructor(props) {
         super(props)
@@ -12,10 +16,15 @@ class Header extends React.Component {
             expensesClicked: false,
             signOut: false,
             signOutClicked: false,
-            nameUpdated: false,
-            name: localStorage.getItem('first_name') + ' ' + localStorage.getItem('last_name')
+            name: this.props.userName
         }
     }
+    componentDidMount() {
+        const user = localStorage.getItem('first_name') + ' ' + localStorage.getItem('last_name');
+        this.setState({name: user})
+        this.props.saveUserName(user)
+    }
+
 
     expensesClicked = () => {
         store.dispatch(expensesClicked( !this.state.expensesClicked))
@@ -64,4 +73,16 @@ class Header extends React.Component {
     }
 }
 
- export default Header
+function mapStateToProps(state) {
+    return {
+        userName: state.productReducer.userName
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        saveUserName: name => dispatch(saveUserName(name)),
+        
+    };
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Header)

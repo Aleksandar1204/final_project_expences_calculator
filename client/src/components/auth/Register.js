@@ -71,9 +71,10 @@ class Register extends React.Component {
                         })
                         .then(res=>{
                             localStorage.setItem('jwt', res.data.jwt);
-                            localStorage.setItem('name', this.state.first_name);
-                            localStorage.setItem('lastName', this.state.last_name);
+                            localStorage.setItem('first_name', this.state.first_name);
+                            localStorage.setItem('last_name', this.state.last_name);
                             this.setState({isAuthenticated: true});
+                            
                             
                         })
                         .catch(err => {

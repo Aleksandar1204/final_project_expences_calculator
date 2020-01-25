@@ -18,7 +18,7 @@ class Products extends React.Component {
             didUpdate:false,
             showProducts: true,
             clicked: false,
-            product:null
+            product:null,
         }
     }
 
@@ -37,6 +37,7 @@ class Products extends React.Component {
                 totalPrice += parseInt(res.data[i].price)
             }
             this.props.getTotalPrice(totalPrice);
+            
             
         })
         .catch(err => {
@@ -90,8 +91,9 @@ filterHandler = (event) => {
     this.setState({
         didUpdate: true,
         filterOption: event.target.value
+        
     })
-
+    console.log(event.target.value)
 }
 
 newProductHandler = () => {
@@ -113,6 +115,7 @@ newProductHandler = () => {
                             <option value="price:asc">Lowest Price</option>
                         </select>
                     </label>
+        
                 
                 <Table showProducts={this.state.showProducts}/>
                 </div>
@@ -129,13 +132,12 @@ function mapStateToProps (state) {
         products: state.productReducer.products,
         tableUpdated: state.productReducer.tableUpdated,
         
-        
     }
 }
 function mapDispatchToProps(dispatch) {
     return {
         getTotalPrice: price => dispatch(getTotalPrice(price)),
-        editProduct: productToEdit => dispatch(editProduct(productToEdit))
+        editProduct: productToEdit => dispatch(editProduct(productToEdit)),
     };
   }
 export default connect(mapStateToProps,mapDispatchToProps)(Products)
