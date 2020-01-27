@@ -105,8 +105,9 @@ newProductHandler = () => {
         return (
             <React.Fragment>
                 <Header/>
-                <div className="main-div">
-                    <h3>Products</h3>
+                <div className="main-select-div">
+                    <div className="select-div-h">
+                    <h1>Products</h1>
                     <label htmlFor="sort">Filter by:
                 <select name="filterOption" id="sort" onChange={this.filterHandler}>
                             <option value="date:desc">Last Purchase</option>
@@ -115,9 +116,8 @@ newProductHandler = () => {
                             <option value="price:asc">Lowest Price</option>
                         </select>
                     </label>
-        
-                
-                <Table showProducts={this.state.showProducts}/>
+                    </div>
+                    <Table showProducts={this.state.showProducts}/>
                 </div>
                 
                 <Link to='/newproduct'><button id="new-btn" onClick={this.newProductHandler}>NEW PRODUCT</button></Link>

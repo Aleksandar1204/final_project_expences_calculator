@@ -17,7 +17,21 @@
 }
 
 #new-btn:hover{
-    
     background: #576574ab ;
-  
+}
+
+.select-div-h{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+
+
+.main-select-div{
+    background-color: #E5EDF5;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }

@@ -28,8 +28,9 @@
     display: flex;
     align-items: center;
     width: 100%;
-    margin-left: 140px;
+    padding-left: 70px;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 .expenses-div button {
     width: 130px;
@@ -91,7 +92,7 @@
 .transparent-div {
     position: fixed;
     bottom: 0;
-    right: 0; 
+    left: 0; 
     font-size: 15px;
     background-color: #95979A;
     opacity:0.8;
