@@ -9,4 +9,6 @@
     flex-wrap: wrap;
     flex-direction: column;
     background-color: #E5EDF5;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }

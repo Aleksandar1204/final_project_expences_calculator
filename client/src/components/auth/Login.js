@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import '../../assets/css/auth/login.css'
 import '../../assets/css/shared/shared.css'
+import { connect } from 'react-redux'
+import { saveUserName } from '../../redux/actions/userAction'
 
 class Login extends React.Component {
     constructor(props){
@@ -38,6 +40,8 @@ class Login extends React.Component {
                     localStorage.setItem('first_name', res.data.first_name);
                     localStorage.setItem('last_name', res.data.last_name);
                     this.setState({ isAuthenticated: true, error: false })
+                    const user = localStorage.getItem('first_name') + ' ' + localStorage.getItem('last_name');
+                    this.props.saveUserName(user)
                 })
                 .catch(err =>{
                     this.setState({ error: true})
@@ -87,4 +91,16 @@ class Login extends React.Component {
 
 }
 
-export default Login
+function mapStateToProps(state) {
+    return {
+        userName: state.productReducer.userName
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        saveUserName: name => dispatch(saveUserName(name)),
+        
+    };
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Login)

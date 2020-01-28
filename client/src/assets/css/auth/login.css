@@ -11,5 +11,7 @@
     flex-direction: column; 
     position: absolute;
     background-color: #E5EDF5;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
    
 }

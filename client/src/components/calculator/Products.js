@@ -106,7 +106,7 @@ newProductHandler = () => {
             <React.Fragment>
                 <Header/>
                 <div className="main-select-div">
-                    <div className="select-div-h">
+                    <div className="select-div-header">
                     <h1>Products</h1>
                     <label htmlFor="sort">Filter by:
                 <select name="filterOption" id="sort" onChange={this.filterHandler}>

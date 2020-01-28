@@ -22,7 +22,6 @@ class Header extends React.Component {
     componentDidMount() {
         const user = localStorage.getItem('first_name') + ' ' + localStorage.getItem('last_name');
         this.setState({name: user})
-        this.props.saveUserName(user)
     }
 
 
