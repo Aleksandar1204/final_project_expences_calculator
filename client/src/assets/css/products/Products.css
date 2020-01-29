@@ -31,19 +31,25 @@ html, body {
 .select-div-header{
     display: flex;
     width: 100%;
-    box-sizing: border-box
+    box-sizing: border-box;
+    
 }
 
 .select-div-header h1{
    padding-bottom: 60px;
-   
     left:60px
 }
 
 .select-div-header label{
     position: absolute;
-    padding-top: 70px;
+    padding-top: 60px;
     right: 150px;
+    
+}
+
+.select-div-header label select{
+  margin:10px
+    
 }
 
 .main-select-div{

@@ -1,28 +1,14 @@
 
 
-.main-div{
-    background-color: #E5EDF5;
-}
-.main-div select{
-    height: 35px;
-    margin-top: 40px;
-    margin-right: 210px;
-    margin-bottom: 10px;
-    color: #8d8d8d;
-}
-.main-div option {
-    padding: 10px;
-}
-.main-div h3 {
-    margin-left: 140px;
-    margin-top: 40px;
-}
+
 
 /* expenses div */
 
-#expenses-h3 {
-    margin-left: 145px;
-    margin-bottom: 40px;
+#expenses-h1 {
+    margin-bottom: 100px;
+    left:60px;
+    width:0%;
+    height:0%
 }
 .expenses-div {
     display: flex;
@@ -55,21 +41,23 @@
 .select-div{
     display: flex;
     align-items: center;
-    width: 25%;
+    
 }
 .yearMonthly-div{
     display: flex;
     align-items: center;
     width: 60%;
+    margin-left: 10px
 }
 .yearMonthly-div label {
     width: 20%;
     font-family: 'Roboto', sans-serif;
+    
 }
 .select-div label {
-    width: 40%;
+    width: 50%;
     padding-left: 50px;
-    padding-left: 20px;
+    margin-right: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -77,7 +65,6 @@
     height: 35px;
     background: #fff; 
     border: 2px solid #C6C6C6;
-    width: 40%;
     color:  #8D8D8D;
     font-size: 16px;
     border-radius: 5px;
@@ -98,9 +85,10 @@
     opacity:0.8;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.17);
     color: white;
-    height: 70px;
+    height: 80px;
     width: 100%;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 .transparent-div p{
@@ -131,7 +119,7 @@
     .right-side{
         width: 25%;
     }
-    .main-div label{
+    .main-div-select label{
         position: absolute;
         top: 80px;
         left: 50px;

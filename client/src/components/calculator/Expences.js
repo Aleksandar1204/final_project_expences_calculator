@@ -172,7 +172,7 @@ class Expenses extends React.Component {
 
 
         let monthly = (
-            <select name="month-select" className="month-select select-box" onChange={this.monthlySelectHandler}>
+            <select name="month-select" className="month-select" onChange={this.monthlySelectHandler}>
                 <option defaultChecked value='months'>Month</option>
                 {this.months.map((month, index) => {
                     return <option key={`month${index}`} value={month}>{month}</option>
@@ -189,16 +189,18 @@ class Expenses extends React.Component {
         return (
             <React.Fragment>
                 <Header/>
-                <h3 id="expenses-h3">Expenses</h3>
+                <div className="main-select-div">
+                <h1 id="expenses-h1">Expenses</h1>
                 <div className="expenses-div">
                     <Link to="#"><button className={!this.state.active ? 'active-btn select-btn' : 'select-btn'} onClick={this.yearlySelect}>Yearly</button></Link>
                     <Link to="#"><button className={this.state.active ? 'active-btn select-btn' : 'select-btn'} onClick={this.monthlySelect}>Monthly</button></Link>
                     <div className="select-div">
-                        {this.state.monthlyDisplay ? <label htmlFor="month-select">Choose month :</label> : <label htmlFor="year-select">Choose year:</label>}
+                        {this.state.monthlyDisplay ? <label htmlFor="month-select">Choose month and year:</label> : <label htmlFor="year-select">Choose year:</label>}
                         {this.state.monthlyDisplay ? yearMonthly : yearly}
                     </div>
                 </div>
                 <Table />
+                </div>
                 <div className="transparent-div">
         <p>Total spent:<span>{this.props.totalPrice}</span> den.</p>
                 </div>

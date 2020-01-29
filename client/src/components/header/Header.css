@@ -20,12 +20,14 @@ header {
     align-items: center;
     margin-left: 120px;
     flex-wrap: nowrap;
+    
+    
 }
 
-.btn-links {
+.btn-links{
     cursor: pointer;
-    border: 1.5px solid #1DD1A1;
-    color: #1DD1A1;
+    border: 1.5px solid #576574;
+    color: #576574;
     background-color: white;
     min-width: 14%;
     text-transform: uppercase;
@@ -35,12 +37,16 @@ header {
     background:transparent;
     text-decoration: none;
     height: 50px;
+    margin:10px
+    
 }
+
+
 .active {
     background-color: white;
     background:transparent;
-    color: #576574;
-    border-color: #576574;
+    color: #1DD1A1;
+    border-color: #1DD1A1;
 }
 span,p {
     color: black;
