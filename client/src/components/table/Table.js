@@ -18,7 +18,8 @@ class Table extends React.Component {
         super(props)
         this.state = {
             editProductClicked: false,
-            showModal:null
+            showModal:null,
+            
         }
     }
 
@@ -100,6 +101,7 @@ class Table extends React.Component {
                 
                 <div className="table-container">
                 {this.state.showModal}
+                
         <table>
           <thead>
             <tr>
@@ -116,7 +118,7 @@ class Table extends React.Component {
                 </tbody>
         </table>
         </div>
-       
+        
             </React.Fragment>
         )
     }

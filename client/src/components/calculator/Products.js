@@ -19,11 +19,14 @@ class Products extends React.Component {
             showProducts: true,
             clicked: false,
             product:null,
+            loading:false
         }
     }
 
     componentDidMount() {
+        
         if (this.props.products){
+            this.setState({ loading: true })
         axios.get('https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc',
         {
             headers: {
@@ -31,6 +34,7 @@ class Products extends React.Component {
             }
         })
         .then(res => {
+            this.setState({loading: false})
             store.dispatch(getProducts(res.data));
             let totalPrice = 0;
             for (let i = 0; i < res.data.length; i++) {
@@ -73,6 +77,7 @@ class Products extends React.Component {
             }
         )
             .then(res => {
+                
                 store.dispatch(getProducts(res.data));
                 store.dispatch(tableUpdated(false))
             })
@@ -121,7 +126,7 @@ newProductHandler = () => {
                 </div>
                 
                 <Link to='/newproduct'><button id="new-btn" onClick={this.newProductHandler}>NEW PRODUCT</button></Link>
-                
+                {this.state.loading && <div style={{color: "grey", fontSize:"50px", textAlign:"center"}}>LOADING...</div>}
             </React.Fragment>
         )
     }

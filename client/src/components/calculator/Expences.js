@@ -26,9 +26,11 @@ class Expenses extends React.Component {
             'September', 'October', 'November', 'December'];
     }
     componentDidMount(){
+        this.setState({ loading: true })
         axios.get("https://hidden-everglades-59214.herokuapp.com/app/v1/products/?sort=date:desc", 
         { headers: {"Authorization" : `Bearer ${localStorage.getItem('jwt')}`}})
         .then(res=>{
+            this.setState({loading: false})
             store.dispatch(getProducts(res.data))
             let totalPrice = 0;
             for (let i = 0; i < res.data.length; i++) {
@@ -204,6 +206,7 @@ class Expenses extends React.Component {
                 <div className="transparent-div">
         <p>Total spent:<span>{this.props.totalPrice}</span> den.</p>
                 </div>
+                {this.state.loading && <div style={{color: "grey", fontSize:"50px", textAlign:"center"}}>LOADING...</div>}
             </React.Fragment>
         )
     }
