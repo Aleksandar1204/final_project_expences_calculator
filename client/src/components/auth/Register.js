@@ -143,7 +143,7 @@ render(){
 </div>
 
      <div className="aditional-info">
-      <p>Or if you don't have an account.<Link to="/" > Sign in</Link></p>
+      <p>Or if you already have an account.<Link to="/" > Sign in</Link></p>
      </div>
 
      </div>

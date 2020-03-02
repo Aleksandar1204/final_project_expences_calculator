@@ -71,8 +71,8 @@ class Login extends React.Component {
                         <input onChange={this.saveInputValue} type="password"  name="password" id="password" className="text-field"/>
                 </p>
 
+                {this.state.error && <div style={{color: "red", textAlign:"center"}}>Wrong email or password.</div>}
                 
-
                 <button className="primary-button" type="submit" onClick={this.logIn}>SIGN IN</button>
            
                 
