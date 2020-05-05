@@ -21,7 +21,9 @@ class Register extends React.Component {
         }
     }
 
-
+componentDidMount(){
+    localStorage.clear()
+}
 
 
     saveInputValue = (event) =>{
