@@ -19,7 +19,9 @@ class Products extends React.Component {
             showProducts: true,
             clicked: false,
             product:null,
-            loading:false
+            loading:false,
+          
+
         }
     }
 
@@ -92,6 +94,7 @@ class Products extends React.Component {
 }
 }
 
+
 filterHandler = (event) => {
     this.setState({
         didUpdate: true,
@@ -110,6 +113,7 @@ newProductHandler = () => {
         return (
             <React.Fragment>
                 <Header/>
+               
                 <div className="main-select-div">
                     <div className="select-div-header">
                     <h1>Products</h1>
@@ -122,7 +126,10 @@ newProductHandler = () => {
                         </select>
                     </label>
                     </div>
-                    <Table showProducts={this.state.showProducts}/>
+          
+                    <Table showProducts={this.state.showProducts} />
+        
+                    
                 </div>
                 
                 <Link to='/newproduct'><button id="new-btn" onClick={this.newProductHandler}>NEW PRODUCT</button></Link>

@@ -9,12 +9,10 @@ app.all('/app/v1/products/*', (req, res) =>{
 
 });
 
-
 app.all('/app/v1/auth/*', (req, res) =>{
     apiProxy.web(req, res, {target: 'http://localhost:8081'});
 
 });
-
 
 app.all('/*', (req,res)=>{
     // res.status(404).send('Not Found!')

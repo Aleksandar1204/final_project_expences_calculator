@@ -6,6 +6,7 @@ const DBconn = require('../db/connection');
 const products = require('../handlers/products');
 const cors = require('cors');
 
+
 DBconn.init(config.getConfig('db'));
 
 const app = express();
