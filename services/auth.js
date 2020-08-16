@@ -13,7 +13,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(
-  jwt({ secret: config.getConfig("jwt").key }).unless({
+  jwt({ secret: config.getConfig("jwt").key, algorithms: ["HS256"] }).unless({
     path: ["/app/v1/auth/register", "/app/v1/auth/login"],
   })
 );
