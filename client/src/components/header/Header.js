@@ -7,7 +7,6 @@ import { saveUserName } from "../../redux/actions/userAction";
 import store from "../../redux/store";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import faker from "faker";
 
 class Header extends React.Component {
   constructor(props) {
@@ -74,11 +73,7 @@ class Header extends React.Component {
               </NavLink>
             </div>
             <div className='right-side'>
-              <img
-                id='profile-image'
-                src={faker.image.imageUrl()}
-                alt='profile'
-              />
+              <img id='profile-image' alt='profile' />
               <p id='name-p'>{this.state.name}</p>
               <p className='sign-out'>
                 <Link to='#' onClick={this.signOutClicked}>
