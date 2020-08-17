@@ -11,7 +11,7 @@ DBconn.init(config.getConfig("db"));
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(jwt({ secret: config.getConfig("jwt").key, algorithms: ["RS256"] }));
+app.use(jwt({ secret: config.getConfig("jwt").key }));
 
 app.get("/app/v1/products/", products.getAll);
 app.get("/app/v1/products/:id", products.getOne);
